@@ -318,14 +318,14 @@
 </li>
 </ul>
 <ol>
-<li>有关于包装类型<br>ECMAScript还提供了三个特殊的引用类型Boolean,String,Number。我们称这三个特殊的引用类型为基本包装类型，也叫<strong>包装对象</strong>.也就是说当读取string,boolean和number这三个基本数据类型的时候，后台就会创建一个对应的基本包装类型对象，从而让我们能够调用一些方法来操作这些数据。  <pre><code class="javacript">let str = &quot;12213&quot;
-let strNum = str.substr(2)
-/*
+<li>有关于包装类型<br>ECMAScript还提供了三个特殊的引用类型Boolean,String,Number。我们称这三个特殊的引用类型为基本包装类型，也叫<strong>包装对象</strong>.也就是说当读取string,boolean和number这三个基本数据类型的时候，后台就会创建一个对应的基本包装类型对象，从而让我们能够调用一些方法来操作这些数据。  <pre><code class="javascript"><span class="keyword">let</span> str = <span class="string">"12213"</span>
+<span class="keyword">let</span> strNum = str.substr(<span class="number">2</span>)
+<span class="comment">/*
 当第二行代码访问str时后台有以下操作  
 1.创建String类型的一个实例  
 2.在实例上调用指定方法    
 3.销毁这个实例  
-*／
+*／</span>
 </code></pre>
 </li>
 </ol>
