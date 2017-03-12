@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
 
     <!--[if lt IE 9]>
@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="javascript里面包含了七种数据类型，其中6种称为基本数据类型(Boolean, null, undefined, Number, String, Symbol),剩下的就是Object对象。
 其中：Boolean: 布尔值，true和falsenull: 一个表明 null 值的特殊关键字。 JavaScript 是大小写敏感的，因此 null 与 Null、NULL或其他变量完全不同。u">
-<meta property="og:updated_time" content="2017-03-12T07:52:08.000Z">
+<meta property="og:updated_time" content="2017-03-12T08:02:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js类型">
 <meta name="twitter:description" content="javascript里面包含了七种数据类型，其中6种称为基本数据类型(Boolean, null, undefined, Number, String, Symbol),剩下的就是Object对象。
@@ -75,7 +75,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+        search: true
     }
 </script>
 
@@ -99,7 +99,7 @@
 <div class="intrude-less">
     <header id="header" class="inner">
         <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
+            <img src="/img/me.jpg" class="animated zoomIn">
         </a>
         <hgroup>
           <h1 class="header-author"><a href="/">Jewel Yueng</a></h1>
@@ -107,6 +107,13 @@
 
         
 
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
 
@@ -160,7 +167,7 @@
                         
                             <li><a href="/">主页</a></li>
                         
-                            <li><a href="/archives/">所有文章</a></li>
+                            <li><a href="/archives/所有文章">所有文章</a></li>
                         
                             <li><a href="/tags/">标签云</a></li>
                         
@@ -224,7 +231,7 @@
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
+                <img src="/img/me.jpg" class="animated zoomIn">
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">Jewel Yueng</a></h1>
@@ -235,7 +242,7 @@
                 
                     <li><a href="/">主页</a></li>
                 
-                    <li><a href="/archives/">所有文章</a></li>
+                    <li><a href="/archives/所有文章">所有文章</a></li>
                 
                     <li><a href="/tags/">标签云</a></li>
                 
@@ -349,7 +356,7 @@
         <p><span>本文标题:</span><a href="/2017/03/12/js类型/">js类型</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Jewel Yueng</a></p>
         <p><span>发布时间:</span>2017-03-12, 13:16:07</p>
-        <p><span>最后更新:</span>2017-03-12, 15:52:08</p>
+        <p><span>最后更新:</span>2017-03-12, 16:02:17</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/12/js类型/" title="js类型">http://yoursite.com/2017/03/12/js类型/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/03/12/js类型/　　作者: Jewel Yueng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -415,6 +422,28 @@
 
 
 
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://yoursite.com/2017/03/12/js类型/';
+            this.page.identifier = '2017/03/12/js类型/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//null.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
 
 
     
