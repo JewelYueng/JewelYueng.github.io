@@ -184,12 +184,12 @@
 <li>null</li>
 <li>0</li>
 <li>NaN</li>
-<li>空字符串””<br><strong>请注意：不要混淆原始布尔值的true和false 与 布尔对象的true和false</strong><pre><code class="javascript"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>)
-<span class="keyword">if</span>(a){
-<span class="comment">//此时将进入循环体</span>
-}
-<span class="keyword">if</span>(a == <span class="literal">true</span>){
-<span class="comment">//此时不是进入循环体</span>
+<li>空字符串””<br><strong>请注意：不要混淆原始布尔值的true和false 与 布尔对象的true和false</strong><pre><code class="javascript"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>)  
+<span class="keyword">if</span>(a){  
+<span class="comment">//此时将进入循环体  </span>
+}  
+<span class="keyword">if</span>(a == <span class="literal">true</span>){  
+<span class="comment">//此时不是进入循环体  </span>
 }
 </code></pre>
 </li>
@@ -198,10 +198,10 @@
 <li>有关于包装类型<br>ECMAScript还提供了三个特殊的引用类型Boolean,String,Number。我们称这三个特殊的引用类型为基本包装类型，也叫<strong>包装对象</strong>.也就是说当读取string,boolean和number这三个基本数据类型的时候，后台就会创建一个对应的基本包装类型对象，从而让我们能够调用一些方法来操作这些数据。  <pre><code class="javacript">let str = &quot;12213&quot;
 let strNum = str.substr(2)
 /*
-当第二行代码访问str时后台有以下操作
+当第二行代码访问str时后台有以下操作  
 1.创建String类型的一个实例  
 2.在实例上调用指定方法    
-3.销毁这个实例
+3.销毁这个实例  
 *／
 </code></pre>
 </li>
