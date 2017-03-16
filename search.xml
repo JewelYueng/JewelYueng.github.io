@@ -11,7 +11,7 @@
 <h1 id="snake"><a href="#snake" class="headerlink" title="snake"></a>snake</h1><p>a Vue webPage for snake game</p>
 <p>这是一款用vue.js实现的贪吃蛇页游。下面介绍一下实现时的思想。</p>
 <p>PS：逻辑运算都放在script标签内</p>
-<h1 id="设计数据结构"><a href="#设计数据结构" class="headerlink" title="-设计数据结构"></a>-设计数据结构</h1><ul>
+<h1 id="设计数据结构"><a href="#设计数据结构" class="headerlink" title="设计数据结构"></a>设计数据结构</h1><ul>
 <li><strong>Step 1：</strong>根据贪吃蛇的运行情况，大致分成三个数据结构，分别是Fruit（随机出现的水果）、Snake（蛇）、Game（负责管理游戏的运行状态）</li>
 <li><strong>Step 2：</strong>细化Fruit和Snake数据结构内部。</li>
 </ul>
@@ -32,9 +32,9 @@
     <span class="keyword">return</span> newGame;
 }
 </code></pre>
-<p><a href="https://github.com/JewelYueng/snake" target="_blank" rel="external">项目地址:https://github.com/JewelYueng/snake</a></p>
 </li>
 </ul>
+<p><a href="https://github.com/JewelYueng/snake" target="_blank" rel="external">项目地址:https://github.com/JewelYueng/snake</a></p>
 ]]></content>
       
         
