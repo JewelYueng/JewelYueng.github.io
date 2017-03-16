@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/12/js类型/index.html">
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="关于js基本类型的容易混淆点，双等号和三等号的区别，基本数据类型和引用数据类型的辨析">
-<meta property="og:updated_time" content="2017-03-14T03:39:42.000Z">
+<meta property="og:updated_time" content="2017-03-16T08:37:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js类型">
 <meta name="twitter:description" content="关于js基本类型的容易混淆点，双等号和三等号的区别，基本数据类型和引用数据类型的辨析">
@@ -315,7 +315,7 @@
           
         <p><excerpt in="" index="" |="" 首页摘要=""><br>关于js基本类型的容易混淆点，双等号和三等号的区别，基本数据类型和引用数据类型的辨析<a id="more"></a></excerpt></p>
 <p><the rest="" of="" contents="" |="" 余下全文=""><br>javascript里面包含了<strong>七种</strong>数据类型，其中6种称为<strong>基本数据类型</strong>(Boolean, null, undefined, Number, String, Symbol),剩下的就是Object对象。</the></p>
-<p>其中：<br>Boolean: 布尔值，true和false<br>null: 一个表明 null 值的特殊关键字。 JavaScript 是大小写敏感的，<strong>因此 null 与 Null、NULL或其他变量完全不同</strong>。<br>undefined: 变量未定义时的属性。<br>Number: 表示数字。<br>String: 表示字符串。<br>Symbol: ES6新增的数据类型，它的实例是唯一的切不可改变的。  </p>
+<p>其中：<br>Boolean: 布尔值，true和false<br>null: 一个表明 null 值的特殊关键字。 JavaScript 是大小写敏感的，<strong>因此 null 与 Null、NULL或其他变量完全不同</strong>。<br>undefined: 变量未定义时的属性。<br>Number: 表示数字。<br>String: 表示字符串。<br>Symbol: ES6新增的数据类型，它的实例是唯一的且不可改变的。  </p>
 <p>接下来讨论几点比较容易迷惑的地方：  </p>
 <ol>
 <li><p>==与===的区别<br>==是比较值，而===是比较堆地址</p>
@@ -331,11 +331,13 @@
 <li>0</li>
 <li>NaN</li>
 <li>空字符串””<br><strong>请注意：不要混淆原始布尔值的true和false 与 布尔对象的true和false</strong><pre><code class="javascript"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>)  
-<span class="keyword">if</span>(a){  
-<span class="comment">//此时将进入循环体  </span>
+<span class="keyword">if</span>(a){
+  ...
+<span class="comment">//此时将执行代码</span>
 }  
 <span class="keyword">if</span>(a == <span class="literal">true</span>){  
-<span class="comment">//此时不是进入循环体  </span>
+  ...
+<span class="comment">//  此时不会执行代码</span>
 }
 </code></pre>
 </li>
