@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[Snake文档]]></title>
       <url>http://yoursite.com/2017/03/17/Snake%E6%96%87%E6%A1%A3/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>a Vue webPage for snake game<br>这是一款用vue.js实现的贪吃蛇页游。下面介绍一下实现时的思想。</excerpt></p>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>这是一款用vue.js实现的贪吃蛇页游。下面介绍一下实现时的思想。<a id="more"></a></excerpt></p>
 <p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
 <h1 id="snake"><a href="#snake" class="headerlink" title="snake"></a>snake</h1><p>a Vue webPage for snake game</p>
 <p>这是一款用vue.js实现的贪吃蛇页游。下面介绍一下实现时的思想。</p>
