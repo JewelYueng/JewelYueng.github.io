@@ -418,27 +418,24 @@
 
 
     
-        <section id="comments">
-    <style> aside.comment-bar { margin: auto 30px; }</style>
-    <div id="disqus_thread"></div>
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/12/js类型/" data-title="js类型" data-url="http://yoursite.com/2017/03/12/js类型/"></div>
     <script>
-        var disqus_config = function(){
-            this.page.url = 'http://yoursite.com/2017/03/12/js类型/';
-            this.page.identifier = '2017/03/12/js类型/';
-        };
+        var duoshuoQuery = {short_name:"fournine"};
         var loadComment = function(){
             var d = document, s = d.createElement('script');
-            s.src = '//jewelc.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
             (d.head || d.body).appendChild(s);
         }
+
+        
     </script>
     
     <script> loadComment(); </script>
 
-</section>
-
-
+</div>
     
 
 
