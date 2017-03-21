@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[repaint 和 refloat的区别]]></title>
+      <title><![CDATA[repaint 和 reflow的区别]]></title>
       <url>http://yoursite.com/2017/03/21/repaint-%E5%92%8C-reflow%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>一个优化性能的点<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
