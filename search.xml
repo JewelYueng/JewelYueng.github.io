@@ -4,21 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[事件处理和委托]]></title>
-      <url>http://yoursite.com/2017/03/21/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%92%8C%E5%A7%94%E6%89%98/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>讲述js的事件委托和处理机制<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
-      
-        
-        <tags>
-            
-            <tag> js基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[repaint 和 refloat的区别]]></title>
       <url>http://yoursite.com/2017/03/21/repaint-%E5%92%8C-reflow%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>一个优化性能的点<a id="more"></a></excerpt></p>
@@ -49,54 +34,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[让一个元素看不见的方法]]></title>
-      <url>http://yoursite.com/2017/03/21/%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>讲述如何使一个元素从看得见到看不见的所有办法<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
-      
-        
-        <tags>
-            
-            <tag> css应用 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[水平竖直居中的方法]]></title>
-      <url>http://yoursite.com/2017/03/21/%E6%B0%B4%E5%B9%B3%E7%AB%96%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>教你如何用css做到使一个元素在水平方向上和竖直方向上的居中<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
-      
-        
-        <tags>
-            
-            <tag> css应用 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[js正则表达式]]></title>
       <url>http://yoursite.com/2017/03/21/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>深入浅出js正则表达式<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
-      
-        
-        <tags>
-            
-            <tag> js基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[js模块化]]></title>
-      <url>http://yoursite.com/2017/03/21/js%E6%A8%A1%E5%9D%97%E5%8C%96/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>js模块化<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
       
         
@@ -118,6 +58,66 @@
         <tags>
             
             <tag> js基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[事件处理和委托]]></title>
+      <url>http://yoursite.com/2017/03/19/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%92%8C%E5%A7%94%E6%89%98/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>讲述js的事件委托和处理机制<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> js基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[让一个元素看不见的方法]]></title>
+      <url>http://yoursite.com/2017/03/18/%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>讲述如何使一个元素从看得见到看不见的所有办法<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> css应用 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[js模块化]]></title>
+      <url>http://yoursite.com/2017/03/18/js%E6%A8%A1%E5%9D%97%E5%8C%96/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>js模块化<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> js基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[水平竖直居中的方法]]></title>
+      <url>http://yoursite.com/2017/03/17/%E6%B0%B4%E5%B9%B3%E7%AB%96%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>教你如何用css做到使一个元素在水平方向上和竖直方向上的居中<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> css应用 </tag>
             
         </tags>
         
