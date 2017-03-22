@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="简单讲述js的事件流">
+<meta name="description" content="简单讲述js的事件模型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js事件流">
+<meta property="og:title" content="js事件模型">
 <meta property="og:url" content="http://yoursite.com/2017/03/20/js事件流/index.html">
 <meta property="og:site_name" content="BiuBiu">
-<meta property="og:description" content="简单讲述js的事件流">
-<meta property="og:updated_time" content="2017-03-21T02:18:46.000Z">
+<meta property="og:description" content="简单讲述js的事件模型">
+<meta property="og:updated_time" content="2017-03-22T17:02:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js事件流">
-<meta name="twitter:description" content="简单讲述js的事件流">
+<meta name="twitter:title" content="js事件模型">
+<meta name="twitter:description" content="简单讲述js的事件模型">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>js事件流 | BiuBiu</title>
+<title>js事件模型 | BiuBiu</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -292,7 +292,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js事件流
+      js事件模型
     </h1>
   
 
@@ -313,8 +313,38 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>简单讲述js的事件流<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>简单讲述js的事件模型<a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<p>#EventTarget接口</p>
+<ul>
+<li><p>addEventListener：绑定事件的监听函数</p>
+<p>  这个函数用在当前节点或者对象上，定义一个特定事件的监听函数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*调用格式：targetObject.addEventListener(type, listener[, useCapture])</span></div><div class="line">*type:事件名称，大小写敏感，例如说"click"（鼠标点击事件）</div><div class="line">*listener：监听函数。事件发生时会调用该监听函数。</div><div class="line">*useCapture：布尔值，表示函数是否在捕获阶段触发，默认为false，即监听函数只会在冒泡阶段被触发。有部分老浏览器规定该参数必选，较新版本的浏览器允许参数可选，所以为了保持兼容，建议总是写上这个参数</div><div class="line">*／</div><div class="line">//实例</div><div class="line">var button = document.getElementById('button');</div><div class="line">button.addEventListener('click',()=&gt;&#123;</div><div class="line">console.log('你点击了按钮button')</div><div class="line">&#125;,false)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>addEventListener可以为当前对象添加多个监听函数。
+
+注意：如果为同一时间添加同一个监听函数，则该函数只会执行一次，多余的添加会被自动去除（不必使用removeEventListener手动去除）
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">call_back</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'call_back'</span>)</div><div class="line">&#125;;</div><div class="line">button.addEventListener(<span class="string">'click'</span>, hello, <span class="literal">false</span>);</div><div class="line">button.addEventListener(<span class="string">'click'</span>, hello, <span class="literal">false</span>);</div><div class="line"><span class="comment">//此时只会输出一次“call_back”</span></div></pre></td></tr></table></figure>
+
+
+如果希望向监听函数传递参数，可用匿名函数包装
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(x)</div><div class="line">&#125;</div><div class="line">button.addEventListener(<span class="string">'click'</span>,() =&gt; &#123;</div><div class="line">print(<span class="string">"hello"</span>)</div><div class="line">&#125;, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>removeEventListener：移除事件的监听函数</p>
+<p>  removeEventListener方法用来移除addEventListener方法添加的事件监听函数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">	button.removeEventListener(<span class="string">'click'</span>, listener, <span class="literal">false</span>)</div><div class="line">	<span class="string">``</span><span class="string">`	</span></div><div class="line">	</div><div class="line">	removeEventListener方法的参数，与addEventListener方法完全一致。它的第一个参数“事件类型”，大小写敏感。</div><div class="line">	**注意**，removeEventListener方法移除的监听函数，必须与对应的addEventListener方法的参数**完全一致**，而且必须在**同一个**元素节点，否则无效。</div><div class="line"></div><div class="line">- dispatchEvent：触发事件</div><div class="line"></div><div class="line">	dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。</div></pre></td></tr></table></figure>
+<pre><code>para.addEventListener(&apos;click&apos;, hello, false)
+var event = new Event(&apos;click&apos;)
+para.dispatchEvent(event)
+//可以获取到para.dispatchEvent(event)的返回值。
+//true 被点击，false 没有被点击
+</code></pre><p>  ```</p>
+</li>
+</ul>
+
       
     </div>
     
@@ -382,7 +412,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"js事件流　| BiuBiu　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"js事件模型　| BiuBiu　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -398,7 +428,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/20/js事件流/" data-title="js事件流" data-url="http://yoursite.com/2017/03/20/js事件流/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/20/js事件流/" data-title="js事件模型" data-url="http://yoursite.com/2017/03/20/js事件流/"></div>
     <script>
         var duoshuoQuery = {short_name:"fournine"};
         var loadComment = function(){
@@ -435,7 +465,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/repaint-和-reflow的区别/">repaint 和 reflow的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/文档流的渲染过程/">文档流的渲染过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件流</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/事件处理和委托/">事件处理和委托</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/repaint-和-reflow的区别/">repaint 和 reflow的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/文档流的渲染过程/">文档流的渲染过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/事件处理和委托/">事件处理和委托</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
 
 
 
