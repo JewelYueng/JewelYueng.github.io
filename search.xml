@@ -72,28 +72,54 @@
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*调用格式：targetObject.addEventListener(type, listener[, useCapture])</span></div><div class="line">*type:事件名称，大小写敏感，例如说"click"（鼠标点击事件）</div><div class="line">*listener：监听函数。事件发生时会调用该监听函数。</div><div class="line">*useCapture：布尔值，表示函数是否在捕获阶段触发，默认为false，即监听函数只会在冒泡阶段被触发。有部分老浏览器规定该参数必选，较新版本的浏览器允许参数可选，所以为了保持兼容，建议总是写上这个参数</div><div class="line">*／</div><div class="line">//实例</div><div class="line">var button = document.getElementById('button');</div><div class="line">button.addEventListener('click',()=&gt;&#123;</div><div class="line">console.log('你点击了按钮button')</div><div class="line">&#125;,false)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<pre><code>addEventListener可以为当前对象添加多个监听函数。
-
-注意：如果为同一时间添加同一个监听函数，则该函数只会执行一次，多余的添加会被自动去除（不必使用removeEventListener手动去除）
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">call_back</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'call_back'</span>)</div><div class="line">&#125;;</div><div class="line">button.addEventListener(<span class="string">'click'</span>, hello, <span class="literal">false</span>);</div><div class="line">button.addEventListener(<span class="string">'click'</span>, hello, <span class="literal">false</span>);</div><div class="line"><span class="comment">//此时只会输出一次“call_back”</span></div></pre></td></tr></table></figure>
-
-
-如果希望向监听函数传递参数，可用匿名函数包装
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(x)</div><div class="line">&#125;</div><div class="line">button.addEventListener(<span class="string">'click'</span>,() =&gt; &#123;</div><div class="line">print(<span class="string">"hello"</span>)</div><div class="line">&#125;, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p>addEventListener可以为当前对象添加多个监听函数。</p>
+<p>注意：如果为同一时间添加同一个监听函数，则该函数只会执行一次，多余的添加会被自动去除（不必使用removeEventListener手动去除）</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">call_back</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'call_back'</span>)</div><div class="line">&#125;;</div><div class="line">button.addEventListener(<span class="string">'click'</span>, hello, <span class="literal">false</span>);</div><div class="line">button.addEventListener(<span class="string">'click'</span>, hello, <span class="literal">false</span>);</div><div class="line"><span class="comment">//此时只会输出一次“call_back”</span></div></pre></td></tr></table></figure>
+</code></pre><p>如果希望向监听函数传递参数，可用匿名函数包装</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(x)</div><div class="line">&#125;</div><div class="line">button.addEventListener(<span class="string">'click'</span>,() =&gt; &#123;</div><div class="line">print(<span class="string">"hello"</span>)</div><div class="line">&#125;, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
 </code></pre><ul>
 <li><p>removeEventListener：移除事件的监听函数</p>
 <p>  removeEventListener方法用来移除addEventListener方法添加的事件监听函数。</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">	button.removeEventListener(<span class="string">'click'</span>, listener, <span class="literal">false</span>)</div><div class="line">	<span class="string">``</span><span class="string">`	</span></div><div class="line">	</div><div class="line">	removeEventListener方法的参数，与addEventListener方法完全一致。它的第一个参数“事件类型”，大小写敏感。</div><div class="line">	**注意**，removeEventListener方法移除的监听函数，必须与对应的addEventListener方法的参数**完全一致**，而且必须在**同一个**元素节点，否则无效。</div><div class="line"></div><div class="line">- dispatchEvent：触发事件</div><div class="line"></div><div class="line">	dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。</div></pre></td></tr></table></figure>
-<pre><code>para.addEventListener(&apos;click&apos;, hello, false)
-var event = new Event(&apos;click&apos;)
-para.dispatchEvent(event)
-//可以获取到para.dispatchEvent(event)的返回值。
-//true 被点击，false 没有被点击
-</code></pre><p>  ```</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">	button.removeEventListener(<span class="string">'click'</span>, listener, <span class="literal">false</span>)</div><div class="line">	<span class="string">``</span><span class="string">`	</span></div><div class="line">	</div><div class="line">removeEventListener方法的参数，与addEventListener方法完全一致。它的第一个参数“事件类型”，大小写敏感。</div><div class="line">	**注意**，removeEventListener方法移除的监听函数，必须与对应的addEventListener方法的参数**完全一致**，而且必须在**同一个**元素节点，否则无效。</div><div class="line"></div><div class="line">- dispatchEvent：触发事件</div><div class="line"></div><div class="line">dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。</div><div class="line">	</div><div class="line">	`<span class="string">``</span>javascript</div><div class="line">		para.addEventListener(<span class="string">'click'</span>, hello, <span class="literal">false</span>)</div><div class="line">		<span class="keyword">var</span> event = <span class="keyword">new</span> Event(<span class="string">'click'</span>)</div><div class="line">		para.dispatchEvent(event)</div><div class="line">		<span class="comment">//可以获取到para.dispatchEvent(event)的返回值。</span></div><div class="line">		<span class="comment">//true 被点击，false 没有被点击</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>#onClick和addEventListener的比较</p>
+<ul>
+<li><p>##共同点</p>
+<p>  都可以定义某些事件的监听代码</p>
+</li>
+<li><p>##不同点</p>
+<p>  ###绑定方法：</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//onclick的绑定方法</div><div class="line">//在html标签中</div><div class="line">&lt;div onclick="doSomeThing()"&gt;点击这个div就可以调用函数&lt;/div&gt;</div><div class="line">//在js中</div><div class="line">//1、通过设置element节点的setAttribute方法</div><div class="line">el.setAttribute('onclick', 'doSomeThing()')</div><div class="line">//2、用.onclick指定监听方法	</div><div class="line">div.onclick = () =&gt; &#123;</div><div class="line">...</div><div class="line">&#125;</div><div class="line"></div><div class="line">//addEventListener的绑定方法</div><div class="line">//通过Element节点、document节点、window对象的addEventListener方法，也可以定义事件的监听函数。</div><div class="line">div.addEventListener('clcik',() =&gt; &#123;</div><div class="line">...</div><div class="line">&#125;,false)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在上面的三种方法中，在html中绑定监听方法在一定程度上违反了html和js代码分离的原则，而在js中通过设置onclick设置监听有一个缺点，就是同一个事件只能定义一个监听函数，重复定义的话，后一次定义会覆盖前一个，但是所有浏览器都支持着几个方法。</p>
+<pre><code>###触发阶段
+onclick的触发阶段只能在冒泡阶段出发，而addEventListener可以制定在哪个阶段（捕获阶段还是冒泡阶段）触发。
+</code></pre><ul>
+<li><p>##推荐用法</p>
+<p>  <strong>addEventListener</strong>:</p>
+<ul>
+<li>可以针对同一个事件，监听多个监听函数。</li>
+<li>能够指定在哪个阶段触发</li>
+<li>除了DOM节点外，还可以部署在window，XMLHttpRequest灯对象上面。</li>
+</ul>
+</li>
+</ul>
+<p>#事件传播</p>
+<p>事件的传播模型分成三个阶段</p>
+<ul>
+<li>第一阶段：从window对象传导到目标节点，称为<strong>捕获阶段</strong>(capture phase)</li>
+<li>第二阶段：在目标节点上触发。称为<strong>目标阶段</strong>（target phase）</li>
+<li>第三阶段：从目标节点传导回window对象，称为<strong>冒泡阶段</strong>（bubbling phase）</li>
+</ul>
+<p>#事件代理</p>
+<p>由于时间会在冒泡阶段向上传播到父节点，因此可以吧子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子愉安素的事件，这种方法叫做<strong>事件的代理（delegation）</strong></p>
+<p>这样做的好处是：只要定义一个监听函数，就能处理多个子节点的事件，而且<strong>以后再添加子节点，监听函数依然有效</strong></p>
+<p>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。</p>
+<p>但是stopPropagation方法只会阻止当前监听函数的传播，不会阻止同节点上的其他监听函数的传播，如果想不再触发那些监听函数，可以使用stopImmediatePropagation方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">p.addEventListener(<span class="string">'click'</span>,(event) =&gt; &#123;</div><div class="line">	event.stopImmediatePropagation()</div><div class="line">&#125;)</div><div class="line">p.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</div><div class="line">	...</div><div class="line">	<span class="comment">//不会被触发</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><a href="http://javascript.ruanyifeng.com/dom/event.html#toc10" target="_blank" rel="external">参考链接:事件模型</a></p>
 ]]></content>
       
         
