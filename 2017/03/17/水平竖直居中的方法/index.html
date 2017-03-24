@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/17/水平竖直居中的方法/index.html">
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="教你如何用css做到使一个元素在水平方向上和竖直方向上的居中">
-<meta property="og:updated_time" content="2017-03-21T02:21:27.000Z">
+<meta property="og:updated_time" content="2017-03-24T17:18:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="水平竖直居中的方法">
 <meta name="twitter:description" content="教你如何用css做到使一个元素在水平方向上和竖直方向上的居中">
@@ -314,7 +314,18 @@
       
           
         <p><excerpt in="" index="" |="" 首页摘要=""><br>教你如何用css做到使一个元素在水平方向上和竖直方向上的居中<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>以下是可以使元素快块居中的css：</p>
+<p>1.<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	width: 400px;</div><div class="line">	height: 200px;</div><div class="line">	position: absolute;</div><div class="line">	left: 50%;</div><div class="line">	top: 50%;</div><div class="line">	margin: -100px 0 0 -200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	width: 400px;</div><div class="line">	height: 200px;</div><div class="line">	position: absolute;</div><div class="line">	top: 0;</div><div class="line">	left: 0;</div><div class="line">	right: 0;</div><div class="line">	bottom: 0;</div><div class="line">	margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	width: 400px;</div><div class="line">	height: 200px;</div><div class="line">	position: absolute;</div><div class="line">	top: 0;</div><div class="line">	left: 0;</div><div class="line">	right: 0;</div><div class="line">	bottom: 0;</div><div class="line">	margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	width: 50%;</div><div class="line">	background: red;</div><div class="line">	display: inline-block;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.使用table-cell来辅助实现，实现的时候需要用三层元素从而使最里层元素居中。需要的可以直接google一下。。。<br>6.目前使用最开心的flex-box布局实现居中，但是也要借助父元素来子元素的居中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.father&#123;</div><div class="line"> 	display: flex;</div><div class="line"> 	flex-direction: row;</div><div class="line"> 	//其实这里使用row或者column都没有问题</div><div class="line"> 	align-items: center;</div><div class="line"> 	justify-contents: center;</div><div class="line">&#125;</div><div class="line">.son&#123;</div><div class="line">	flex: 0 1 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对flex-box不了解的话可以回去 mdn说明文档细看。</p>
+<p><a href="http://the-echoplex.net/flexyboxes/" target="_blank" rel="external">flex-box试验场</a></p>
+</the>
       
     </div>
     
@@ -435,7 +446,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/repaint-和-reflow的区别/">repaint 和 reflow的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/文档流的渲染过程/">文档流的渲染过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/事件处理和委托/">事件处理和委托</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/repaint-和-reflow的区别/">repaint 和 reflow的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/文档流的渲染过程/">文档流的渲染过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
 
 
 

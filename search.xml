@@ -105,7 +105,7 @@
 <li>第二阶段：在目标节点上触发。称为<strong>目标阶段</strong>（target phase）</li>
 <li>第三阶段：从目标节点传导回window对象，称为<strong>冒泡阶段</strong>（bubbling phase）</li>
 </ul>
-<h1 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h1><p>由于时间会在冒泡阶段向上传播到父节点，因此可以吧子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子愉安素的事件，这种方法叫做<strong>事件的代理（delegation）</strong></p>
+<h1 id="事件代理／事件委托"><a href="#事件代理／事件委托" class="headerlink" title="事件代理／事件委托"></a>事件代理／事件委托</h1><p>由于时间会在冒泡阶段向上传播到父节点，因此可以吧子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件，这种方法叫做<strong>事件的代理（delegation）</strong></p>
 <p>这样做的好处是：只要定义一个监听函数，就能处理多个子节点的事件，而且<strong>以后再添加子节点，监听函数依然有效</strong></p>
 <p>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。</p>
 <p>但是stopPropagation方法只会阻止当前监听函数的传播，不会阻止同节点上的其他监听函数的传播，如果想不再触发那些监听函数，可以使用stopImmediatePropagation方法</p>
@@ -123,25 +123,22 @@
     </entry>
     
     <entry>
-      <title><![CDATA[事件处理和委托]]></title>
-      <url>http://yoursite.com/2017/03/19/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%92%8C%E5%A7%94%E6%89%98/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>讲述js的事件委托和处理机制<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
-      
-        
-        <tags>
-            
-            <tag> js基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[让一个元素看不见的方法]]></title>
       <url>http://yoursite.com/2017/03/18/%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>讲述如何使一个元素从看得见到看不见的所有办法<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
+
+<p>接下来介绍几个可以隐藏元素的方法：</p>
+<ul>
+<li>{display:none;}</li>
+<li>{visibility: hidden;}</li>
+<li>{position: absolute; top: -999em;}</li>
+<li>{position: relative; top: -999em;}</li>
+<li>{position: absolute; visibility: hidden;}</li>
+<li>{height: 0; overflow: hidden;}</li>
+<li>{opacity: 0; filter:Alpha(opacity=0);}</li>
+<li>{ position: absolute; opacity: 0; filter:Alpha(opacity=0); }</li>
+</ul>
 </the>]]></content>
       
         
@@ -172,7 +169,18 @@
       <title><![CDATA[水平竖直居中的方法]]></title>
       <url>http://yoursite.com/2017/03/17/%E6%B0%B4%E5%B9%B3%E7%AB%96%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>教你如何用css做到使一个元素在水平方向上和竖直方向上的居中<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>以下是可以使元素快块居中的css：</p>
+<p>1.<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	width: 400px;</div><div class="line">	height: 200px;</div><div class="line">	position: absolute;</div><div class="line">	left: 50%;</div><div class="line">	top: 50%;</div><div class="line">	margin: -100px 0 0 -200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	width: 400px;</div><div class="line">	height: 200px;</div><div class="line">	position: absolute;</div><div class="line">	top: 0;</div><div class="line">	left: 0;</div><div class="line">	right: 0;</div><div class="line">	bottom: 0;</div><div class="line">	margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	width: 400px;</div><div class="line">	height: 200px;</div><div class="line">	position: absolute;</div><div class="line">	top: 0;</div><div class="line">	left: 0;</div><div class="line">	right: 0;</div><div class="line">	bottom: 0;</div><div class="line">	margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	width: 50%;</div><div class="line">	background: red;</div><div class="line">	display: inline-block;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.使用table-cell来辅助实现，实现的时候需要用三层元素从而使最里层元素居中。需要的可以直接google一下。。。<br>6.目前使用最开心的flex-box布局实现居中，但是也要借助父元素来子元素的居中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.father&#123;</div><div class="line"> 	display: flex;</div><div class="line"> 	flex-direction: row;</div><div class="line"> 	//其实这里使用row或者column都没有问题</div><div class="line"> 	align-items: center;</div><div class="line"> 	justify-contents: center;</div><div class="line">&#125;</div><div class="line">.son&#123;</div><div class="line">	flex: 0 1 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对flex-box不了解的话可以回去 mdn说明文档细看。</p>
+<p><a href="http://the-echoplex.net/flexyboxes/" target="_blank" rel="external">flex-box试验场</a></p>
+</the>]]></content>
       
         
         <tags>
