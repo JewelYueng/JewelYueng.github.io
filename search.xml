@@ -4,6 +4,14 @@
   
     
     <entry>
+      <title><![CDATA[apply,call,bind]]></title>
+      <url>http://yoursite.com/2017/03/25/apply-call-bind/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[html语义化]]></title>
       <url>http://yoursite.com/2017/03/21/html%E8%AF%AD%E4%B9%89%E5%8C%96/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>讲述html的语义化的具体体现<a id="more"></a></excerpt></p>
@@ -16,8 +24,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[repaint 和 reflow的区别]]></title>
-      <url>http://yoursite.com/2017/03/21/repaint-%E5%92%8C-reflow%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      <title><![CDATA[浏览器渲染，repaint和reflow的区别和优化]]></title>
+      <url>http://yoursite.com/2017/03/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%EF%BC%8Crepaint%E5%92%8Creflow%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E5%8C%96/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>一个优化性能的点<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
       
@@ -31,10 +39,57 @@
     </entry>
     
     <entry>
-      <title><![CDATA[文档流的渲染过程]]></title>
-      <url>http://yoursite.com/2017/03/21/%E6%96%87%E6%A1%A3%E6%B5%81%E7%9A%84%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/</url>
+      <title><![CDATA[http事务]]></title>
+      <url>http://yoursite.com/2017/03/21/http%E4%BA%8B%E5%8A%A1/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>DNS解析域名开始，html页面是怎么出现在我们眼前的<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>其实这篇笔记也可以勉强算做mark一下一次完整的http事务。</p>
+<p>#大致流程：<br>域名解析 =&gt; 发起TCP三次握手 =&gt; 建立TCP连接后发起http请求 =&gt; 浏览器解析html代码,并请求html中的资源（如js、css、图片） =&gt; 浏览器对页面进行渲染呈现给用户</p>
+<p>一下具体解释一下上面的各个步骤，以输入“<a href="http://www.baidu.com”为例" target="_blank" rel="external">http://www.baidu.com”为例</a></p>
+<p>##域名解析</p>
+<ol>
+<li>浏览器会首先搜索浏览器自身的DNS缓存，注意这里的缓存时间比较短，大概只有一秒，而且缓存数量少，只能容纳1000条。如果浏览器自身的DNS缓存中存在“www.baidu.com”对应的条目，并且没有过期，则域名解析到此结束。如果没有找到或者找到但是已经过期，域名解析将进入下一步。</li>
+<li>浏览器会搜索操作系统自身的DNS缓存，如果找到并且缓存还没有过期，则域名解析到此结束，如果没有找到或者找到但是已经过期，域名解析将进入下一步。</li>
+<li>如果是在Windows系统的DNS缓存中也没有找到，那么就会尝试读取hosts文件，看看里面有没有该域名对应的ip地址，如果有则解析成功（因此Windows系统翻墙可以通过修改hosts文件做到，可是可以浏览的国外网站数量就被有限的ip地址限制了。）如果没有找到相应的ip地址，则域名解析将进入下一步。</li>
+<li>浏览器发起一个DNS的系统调用，就会向本地配置的首选DNS服务器发起域名解析请求（一般是电信运营商提供），通过UDP协议向DNS的53端发起请求，这个请求是递归的请求，也就是运营商的DNS服务器必须得提供给我们该域名的ip地址。运营商的DNS服务器先看自己的缓存有没有没有过期的缓存条目，如果找到，则解析成功，如果没有找到，运营的DNS服务器会代替我们的浏览器发起迭代DNS解析请求，首先会找根域的DNS的ip地址，然后向根域发起请求询问www.baidu.com的IP，然后根域会给你com域的IP地址，接着运营商DNS服务器向com域发起请求询问www.baidu.com的IP地址，然后com域就会返回baidu.com 的ip地址，接着运营商DNS服务器就会向baidu.com发起请求询问www.baidu.com的ip地址，这个时候终于找到了www.baidu.com的ip地址，把ip地址返回给运营商DNS服务器后，运营商DNS服务器就会把结果返回给浏览器，最后浏览器拿到了相应的ip地址。</li>
+</ol>
+<p>##TCP三次握手</p>
+<ol>
+<li>客户端首先发送一个连接请求，ACK=0 表示确认号无效，SYN = 1 表示这是一个连接请求或连接接受报文，同时表示这个数据报不能携带数据，seq = x 表示Client自己的初始序号（seq = 0 就代表这是第0号包），这时候Client进入syn_sent状态，表示客户端等待服务器的回复</li>
+<li>服务器监听到连接请求后，如同意建立连接，则向客户端发送确认。TCP报文首部中的SYN 和 ACK都置1 ，ack = x + 1表示期望收到对方下一个报文段的第一个数据字节序号是x+1，同时表明x为止的所有数据都已正确收到（ack=1其实是ack=0+1,也就是期望客户端的第1个包），seq = y 表示Server 自己的初始序号（seq=0就代表这是服务器这边发出的第0号包）。这时服务器进入syn_rcvd，表示服务器已经收到Client的连接请求，等待客户端的确认。</li>
+<li>客户端收到确认后还需再次发送确认，同时携带要发送给Server的数据。ACK 置1 表示确认号ack= y + 1 有效（代表期望收到服务器的第1个包），Client自己的序号seq= x + 1（表示这就是我的第1个包，相对于第0个包来说的），一旦收到客户端的确认之后，这个TCP连接就进入Established状态，就可以发起http请求了。</li>
+</ol>
+<p>整个过程就像是我们的日常对话<br>“你好，你现在有空跟我聊聊吗”<br>“你好，我现在有空，可以跟你聊”<br>“好的，那我跟你说···”</p>
+<p><strong>TCP协议选择三次握手的原因</strong></p>
+<ol>
+<li>两个计算机通信是靠协议来实现的，如果两个计算机使用的协议不一样，是不能进行通信的，这三次握手在一定意义上也是在确定通信双方是否都遵循TCP／IP协议。</li>
+<li><p>最主要是为了防止已过期的连接再次穿到被连接的主机上。 考虑以下情景：</p>
+<p> A：“你好，你现在有空跟我聊聊吗”</p>
+<p> 此时A的问题没有正常传达给B，等了好久B还是没有回应，A决定重新问一句。</p>
+<p> A：“你好，你现在有空跟我聊吗”<br> B：“可以啊有空。”<br> A：“balabalabala”<br> …</p>
+<p> AB传完东西后，断开连接了，而现在，A的第一句话突然又传到了B那里，然后非常有空的B又回了一句“可以啊有空”，B以为又再次跟A连接上了，却再也等不到A的数据过来了，就会导致B空等，浪费资源。</p>
+</li>
+<li><p>为什么不选择两次握手？可以考虑以下的一个场景</p>
+<p> A：“你好，你现在有空可以跟我聊聊嘛”<br> B：“可以啊，我现在有空”</p>
+<p> 假设此时，B的回复因为奇怪的原因没有正常传达给A，即丢包了，接下来AB的反应就会可能形成死锁：</p>
+<p> B觉得连接已经成功建立了，可以开始发送数据。</p>
+<p> A没有收到B的回复，以为连接没有成功建立，不知道A准备好了没有，将忽略B发来的任何数据，只等待B的确定方便聊天的回复。</p>
+<p> 而当B发出的请求超时后，B会重新发送同样的分组。<br> 接着就会形成死锁。</p>
+</li>
+</ol>
+<p>##浏览器发起http请求</p>
+<p>经过TCP三次握手后，浏览器发起http请求。</p>
+<p>##服务器端响应http请求</p>
+<p>服务器受到http请求后，就开始处理请求，处理之后就返回给浏览器html文件。</p>
+<p>##浏览器解析html代码，并请求html代码中的资源</p>
+<p>浏览器拿到html文件后，就开始解析其中的html代码，遇到js／css／image等静态资源时，就向服务器端请求下载（会使用多线程下载，每个浏览器的线程数不一样），这个时候就用上了keep-alive特性了，建立一次httpi 连接，可以请求多个资源，西崽子愉安的顺序就是按照代码里的顺序，但是由于每个资源大小不一样，所以在浏览器上显示的顺序并不一定是代码里面的顺序。</p>
+<p><a href="http://kb.cnblogs.com/page/129756/" target="_blank" rel="external">详细的浏览器工作原理请点击这里</a></p>
+<p>##浏览器对页面进行渲染呈现给用户</p>
+<p>最后浏览器利用自己的内部工作机制，把请求到的静态资源和html代码进行渲染，渲染之后呈现给用户，至此完成了一次完整的http事务</p>
+<p>渲染的具体过程可见：<a href="https://jewelyueng.github.io/2017/03/21/浏览器渲染，repaint和reflow的区别和优化/" target="_blank" rel="external">浏览器渲染，repaint和reflow的区别和优化</a></p>
+<p>参考文章：<a href="http://www.cnblogs.com/rwind/p/5479786.html" target="_blank" rel="external">一次完整的http事务</a></p>
+</the>]]></content>
       
         
         <tags>
