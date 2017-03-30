@@ -27,7 +27,49 @@
       <title><![CDATA[浏览器渲染，repaint和reflow的区别和优化]]></title>
       <url>http://yoursite.com/2017/03/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%EF%BC%8Crepaint%E5%92%8Creflow%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E5%8C%96/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>一个优化性能的点<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>我们已经了解过一次完整的http事务究竟是什么样子的了，其中最接近用户的操作大概就是浏览器解析html文件，因此下面就讲一下浏览器解析的大概工作流程：</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/305/513/3055132361-55169ffa877a0" alt="浏览器解析的工作流程图"></p>
+<p>图片来自<a href="https://segmentfault.com/a/1190000002629708" target="_blank" rel="external">Repaint、ReFlow的基本认识和优化</a></p>
+<p>从图中可以看到是四个步骤：</p>
+<ol>
+<li>解析HTML，构建DOM树：浏览器中的渲染引擎负责解析html文档，转换树中的html标签或js生成的标签到DOM节点上，此为<strong>内容树</strong></li>
+<li>构建渲染树：解析CSS，根据CSS选择器计算出节点的样式，创建<strong>渲染书</strong></li>
+<li>布局渲染树：从根节点递归调用，计算每一个元素的大小位置等，给每一个节点所应该出现在屏幕上的精确坐标。</li>
+<li>绘制渲染树：遍历渲染树，每个节点将使用UI后端层来绘制。</li>
+</ol>
+<p>其中，Reapint和Reflow出现在了第三第四步，可以大概看出来这两步都发生了什么：</p>
+<ul>
+<li>Reflow时，浏览器根据样式来计算，根据计算结果将元素放在它该出现的位置。</li>
+<li>Repaint时，每个元素的位置的大小和位置以及其他一些属性都确定下来以后，浏览器按照这些元素的额各自特性绘制一次。</li>
+</ul>
+<h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><p>所以，这两个步骤都是整个渲染过程不可或缺的部分，我们平时口中所说的页面渲染，其实可以只发生Repaint或者Reflow也可以两个都发生，例如说以下的一些操作：</p>
+<ol>
+<li>对DOM节点进行增加删除修改时。</li>
+<li>移动DOM节点的位置时。</li>
+<li>修改DOM节点的CSS样式时</li>
+<li>修改网页默认字体时</li>
+</ol>
+<p>而在这里不得不提一下，Reflow的成本会比Repaint的高很多，因为一个节点reflow很可能会导致父节点或者同级节点的reflow，因为reflow时计算元素应该出现的位置并且把他们放在应该出现的位置。所以大量的reflow操作是需要尽量避免的，尽量将reflow对性能的影响减到最低。</p>
+<ol>
+<li>js修改DOM节点样式时，不要一个属性一个属性的修改。优化方法：先定义好css的class，然后修改className</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//不推荐以下写法</div><div class="line">	el.style.left = 100 + 'px'</div><div class="line">	el.style.top = 200 + 'px'</div><div class="line">//推荐下面的写法</div><div class="line">&lt;style&gt;</div><div class="line">	.new_class&#123;</div><div class="line">		left: 100px;</div><div class="line">		top: 200px;</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	el.className += 'new_class'</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>不要把DOM节点的属性读写放在循环里，不然会大量读写该节点的属性</li>
+<li>必须修改时，修改层级较低的DOM节点。</li>
+<li>避免使用table布局，不然一个很小的改动会造成整个table的布局</li>
+<li>把对象隐藏时，尽量使用<code>visibility: hidden;</code>代替<code>display: none;</code>因为前者只触发了repaint后者触发了reflow和repaint</li>
+<li><p>把DOM节点离线后修改：</p>
+<ul>
+<li>使用documentFragment对象在内存里操作DOM</li>
+<li>clone一个DOM节点到内存里，然后对他进行修改，改完以后跟在线的那个DOM节点交换。</li>
+<li>可以先 visibility: hiidden掉一个DOM节点，然后改完以后再显示出来。</li>
+</ul>
+</li>
+</ol>
+</the>]]></content>
       
         
         <tags>
