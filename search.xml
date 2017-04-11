@@ -6,7 +6,11 @@
     <entry>
       <title><![CDATA[apply,call,bind]]></title>
       <url>http://yoursite.com/2017/03/25/apply-call-bind/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>js的call,apply和bind的不同<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p><a href="http://web.jobbole.com/83642" target="_blank" rel="external">参考文章： http://web.jobbole.com/83642</a></p>
+</the>]]></content>
       
         
     </entry>
@@ -70,6 +74,7 @@
 </li>
 </ol>
 <p><a href="https://segmentfault.com/a/1190000002629708" target="_blank" rel="external">参考文章：Repaint、ReFlow的基本认识和优化</a></p>
+<p><a href="http://www.nowamagic.net/academy/detail/48110677" target="_blank" rel="external">参考文章2: repaint和reflow的更多细节</a></p>
 </the>]]></content>
       
         
@@ -199,6 +204,7 @@
 </ul>
 <h1 id="事件代理／事件委托"><a href="#事件代理／事件委托" class="headerlink" title="事件代理／事件委托"></a>事件代理／事件委托</h1><p>由于时间会在冒泡阶段向上传播到父节点，因此可以吧子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件，这种方法叫做<strong>事件的代理（delegation）</strong></p>
 <p>这样做的好处是：只要定义一个监听函数，就能处理多个子节点的事件，而且<strong>以后再添加子节点，监听函数依然有效</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"father"</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(e.target &amp;&amp; e.target.nodeName.toUpperCase === <span class="string">'LI'</span>)&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;e.target.id&#125;</span>was clicked`</span>)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。</p>
 <p>但是stopPropagation方法只会阻止当前监听函数的传播，不会阻止同节点上的其他监听函数的传播，如果想不再触发那些监听函数，可以使用stopImmediatePropagation方法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">p.addEventListener(<span class="string">'click'</span>,(event) =&gt; &#123;</div><div class="line">	event.stopImmediatePropagation()</div><div class="line">&#125;)</div><div class="line">p.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</div><div class="line">	...</div><div class="line">	<span class="comment">//不会被触发</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
