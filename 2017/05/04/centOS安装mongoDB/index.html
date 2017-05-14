@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="深入浅出js正则表达式">
+<meta name="description" content="想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装mongoDB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js正则表达式">
-<meta property="og:url" content="http://yoursite.com/2017/03/21/js正则表达式/index.html">
+<meta property="og:title" content="centOS安装mongoDB">
+<meta property="og:url" content="http://yoursite.com/2017/05/04/centOS安装mongoDB/index.html">
 <meta property="og:site_name" content="BiuBiu">
-<meta property="og:description" content="深入浅出js正则表达式">
-<meta property="og:updated_time" content="2017-03-21T02:18:08.000Z">
+<meta property="og:description" content="想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装mongoDB">
+<meta property="og:updated_time" content="2017-05-14T15:53:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js正则表达式">
-<meta name="twitter:description" content="深入浅出js正则表达式">
+<meta name="twitter:title" content="centOS安装mongoDB">
+<meta name="twitter:description" content="想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装mongoDB">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>js正则表达式 | BiuBiu</title>
+<title>centOS安装mongoDB | BiuBiu</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -273,11 +273,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-js正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-centOS安装mongoDB" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/21/js正则表达式/" class="article-date">
-      <time datetime="2017-03-21T01:19:20.000Z" itemprop="datePublished">2017-03-21</time>
+      <a href="/2017/05/04/centOS安装mongoDB/" class="article-date">
+      <time datetime="2017-05-04T07:23:52.000Z" itemprop="datePublished">2017-05-04</time>
 </a>
 
 
@@ -292,7 +292,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js正则表达式
+      centOS安装mongoDB
     </h1>
   
 
@@ -303,7 +303,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js基础/">js基础</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器搭建/">服务器搭建</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,8 +313,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>深入浅出js正则表达式<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装mongoDB<a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<p>#CentOS安装mongoDB</p>
+<p>（以下所有代码都是命令）</p>
+<ol>
+<li><p>准备工作</p>
+<p> 检查是否安装过mongoDB</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sevice mongodb status</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载&amp;安装</p>
+<p> 到local的目录下</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /usr/local</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>下载之前可以去[mongoDB官网](https://www.mongodb.com)看一下最新的版本是什么
+
+现在最新版是3.4.4，以下的下载链接可以根据不同版本更改那个数字
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.2.7.tgz</div></pre></td></tr></table></figure>
+
+
+大概100m左右，下完以后就是解压下载的压缩包
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xvf mongodb-linux-x86_64-rhel62-3.4.4.tgz</div></pre></td></tr></table></figure>
+
+
+紧接着
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv mongodb-linux-x86_64-rhel62-3.4.4 mongodb</div></pre></td></tr></table></figure>
+</code></pre><ol>
+<li>配置环境变量</li>
+<li></li>
+</ol>
+
       
     </div>
     
@@ -326,15 +358,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/21/http事务/">
-                    http事务
+                <a href="/2017/05/08/机器学习的基本概念/">
+                    机器学习的基本概念
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/20/js事件流/">
-                    js事件模型
+                <a href="/2017/03/25/apply-call-bind/">
+                    apply,call,bind
                 </a>
             </div>
         
@@ -382,7 +414,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"js正则表达式　| BiuBiu　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"centOS安装mongoDB　| BiuBiu　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -398,7 +430,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/21/js正则表达式/" data-title="js正则表达式" data-url="http://yoursite.com/2017/03/21/js正则表达式/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/05/04/centOS安装mongoDB/" data-title="centOS安装mongoDB" data-url="http://yoursite.com/2017/05/04/centOS安装mongoDB/"></div>
     <script>
         var duoshuoQuery = {short_name:"fournine"};
         var loadComment = function(){
@@ -421,7 +453,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/21/http事务/" title="上一篇: http事务">
+            <a href="/2017/05/08/机器学习的基本概念/" title="上一篇: 机器学习的基本概念">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -429,7 +461,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/20/js事件流/" title="下一篇: js事件模型">
+            <a href="/2017/03/25/apply-call-bind/" title="下一篇: apply,call,bind">
                 <i class="fa fa-angle-right"></i>
             </a>
         

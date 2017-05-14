@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="深入浅出js正则表达式">
+<meta name="description" content="想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js正则表达式">
-<meta property="og:url" content="http://yoursite.com/2017/03/21/js正则表达式/index.html">
+<meta property="og:title" content="centOS">
+<meta property="og:url" content="http://yoursite.com/2017/05/14/centOS配置node环境/index.html">
 <meta property="og:site_name" content="BiuBiu">
-<meta property="og:description" content="深入浅出js正则表达式">
-<meta property="og:updated_time" content="2017-03-21T02:18:08.000Z">
+<meta property="og:description" content="想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装node">
+<meta property="og:updated_time" content="2017-05-14T16:29:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js正则表达式">
-<meta name="twitter:description" content="深入浅出js正则表达式">
+<meta name="twitter:title" content="centOS">
+<meta name="twitter:description" content="想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装node">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>js正则表达式 | BiuBiu</title>
+<title>centOS | BiuBiu</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -273,11 +273,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-js正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-centOS配置node环境" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/21/js正则表达式/" class="article-date">
-      <time datetime="2017-03-21T01:19:20.000Z" itemprop="datePublished">2017-03-21</time>
+      <a href="/2017/05/14/centOS配置node环境/" class="article-date">
+      <time datetime="2017-05-14T15:46:52.000Z" itemprop="datePublished">2017-05-14</time>
 </a>
 
 
@@ -292,7 +292,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js正则表达式
+      centOS
     </h1>
   
 
@@ -302,10 +302,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js基础/">js基础</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -313,8 +309,50 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>深入浅出js正则表达式<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装node<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h1 id="CentOS上部署node环境"><a href="#CentOS上部署node环境" class="headerlink" title="CentOS上部署node环境"></a>CentOS上部署node环境</h1><ol>
+<li>wget命令下载Node.js安装包。该安装包是编译好的文件，解压之后，在bin文件夹中就已经存在node和npm，无需重复编译。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz</div></pre></td></tr></table></figure>
+<p><strong>此处，下载的是v6.9.5版本，如想直接下载某个版本就把v6.9.5改成相应的版本即可，也可以使用下面的nvm版本管理工具来进行node其他版本的下载</strong></p>
+<ol>
+<li>解压文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar xvf node-v6.9.5-linux-x64.tar.xz</div></pre></td></tr></table></figure>
+<ol>
+<li>创建软连接，使node和npm命令全局有效，通过创建软连接的方法，使得在任意目录下斗可以直接使用node和npm命令</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -s /root/node-v6.9.5-linux-x64/bin/node /usr/local/bin/node</div><div class="line">ln -s /root/node-v6.9.5-linux-x64/bin/npm /usr/local/bin/npm</div></pre></td></tr></table></figure>
+<ol>
+<li>检查是否安装成功。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//查看node版本</div><div class="line">node -v</div><div class="line">//查看npm版本</div><div class="line">npm -v</div></pre></td></tr></table></figure>
+<p>5.到这里node的环境就已经安装完毕了。接下来就会是node环境的部署，这里使用nvm来安装node的多版本，安装步骤如下：</p>
+<p>a. 直接使用git将源码克隆在本地的～/.nvm目录下，并检查最新版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install git</div><div class="line">git clone https://github.com/cnpm/nvm.git ~/.nvm &amp;&amp; cd ~/.nvm &amp;&amp; git checkout `git describe --abbrev=0 --tags`</div></pre></td></tr></table></figure>
+<p>b.激活nvm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; /etc/profile</div><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+<p>c.nvm安装完毕，可以使用命令来管理node    </p>
+<ul>
+<li>列出所有node的版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm list-remote</div></pre></td></tr></table></figure>
+<ul>
+<li>安装其他node版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install v7.10.0</div></pre></td></tr></table></figure>
+<ul>
+<li>查看已安装的版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm -ls</div></pre></td></tr></table></figure>
+<ul>
+<li>切换版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use v7.10.0</div></pre></td></tr></table></figure>
+<p>更多操作可以输入<code>nvm help</code>命令查看</p>
+</the>
       
     </div>
     
@@ -325,16 +363,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/21/http事务/">
-                    http事务
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/20/js事件流/">
-                    js事件模型
+                <a href="/2017/05/08/机器学习的基本概念/">
+                    机器学习的基本概念
                 </a>
             </div>
         
@@ -346,7 +378,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CentOS上部署node环境"><span class="toc-number">1.</span> <span class="toc-text">CentOS上部署node环境</span></a></li></ol>
         
     </div>
     <style>
@@ -382,7 +414,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"js正则表达式　| BiuBiu　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"centOS　| BiuBiu　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -398,7 +430,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/21/js正则表达式/" data-title="js正则表达式" data-url="http://yoursite.com/2017/03/21/js正则表达式/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/05/14/centOS配置node环境/" data-title="centOS" data-url="http://yoursite.com/2017/05/14/centOS配置node环境/"></div>
     <script>
         var duoshuoQuery = {short_name:"fournine"};
         var loadComment = function(){
@@ -421,15 +453,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/21/http事务/" title="上一篇: http事务">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/20/js事件流/" title="下一篇: js事件模型">
+            <a href="/2017/05/08/机器学习的基本概念/" title="下一篇: 机器学习的基本概念">
                 <i class="fa fa-angle-right"></i>
             </a>
         
