@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/04/centOS安装mongoDB/index.html">
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装mongoDB">
-<meta property="og:updated_time" content="2017-05-14T15:53:05.000Z">
+<meta property="og:updated_time" content="2017-05-15T13:18:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centOS安装mongoDB">
 <meta name="twitter:description" content="想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装mongoDB">
@@ -315,7 +315,7 @@
           
         <p><excerpt in="" index="" |="" 首页摘要=""><br>想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装mongoDB<a id="more"></a></excerpt></p>
 <p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
-<p>#CentOS安装mongoDB</p>
+<p>#CentOS使用yum安装mongoDB</p>
 <p>（以下所有代码都是命令）</p>
 <ol>
 <li><p>准备工作</p>
@@ -323,28 +323,37 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sevice mongodb status</div></pre></td></tr></table></figure>
 </li>
 <li><p>下载&amp;安装</p>
-<p> 到local的目录下</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /usr/local</div></pre></td></tr></table></figure>
+<p> 编辑yum仓库配置</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/yum.repos.d/mongodb.repo</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>下载之前可以去[mongoDB官网](https://www.mongodb.com)看一下最新的版本是什么
+<pre><code>内容为
 
-现在最新版是3.4.4，以下的下载链接可以根据不同版本更改那个数字
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.2.7.tgz</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[mongodb-org-3.2]</div><div class="line">name=MongoDB Repository</div><div class="line">baseurl=https://repo.mongodb.org/yum/...$releasever/mongodb-org/3.2/x86_64/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure>
 
 
-大概100m左右，下完以后就是解压下载的压缩包
+然后安装
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xvf mongodb-linux-x86_64-rhel62-3.4.4.tgz</div></pre></td></tr></table></figure>
-
-
-紧接着
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv mongodb-linux-x86_64-rhel62-3.4.4 mongodb</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y mongodb-org</div></pre></td></tr></table></figure>
 </code></pre><ol>
-<li>配置环境变量</li>
-<li></li>
+<li>使用mongodb</li>
+</ol>
+<ul>
+<li><p>启动    </p>
+<pre><code>sevice mongod start
+</code></pre></li>
+<li><p>停止</p>
+<pre><code>sevice mongod stop
+</code></pre></li>
+<li><p>重启</p>
+<pre><code>sevice mongod restart
+</code></pre></li>
+<li><p>客户端</p>
+<pre><code>mongo
+</code></pre></li>
+</ul>
+<ol>
+<li>更多mongoDB的使用可以参考<a href="https://i.jakeyu.top/2016/10/21/CentOS%E5%AE%89%E8%A3%85mongodb%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_blank" rel="external">CentOS安装mongodb数据库</a></li>
 </ol>
 
       
