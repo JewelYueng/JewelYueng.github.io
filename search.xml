@@ -4,6 +4,162 @@
   
     
     <entry>
+      <title><![CDATA[centOS/Mac OSX安装使用tmux]]></title>
+      <url>http://yoursite.com/2017/05/18/centOS-Mac-OSX%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8tmux/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>如何使用tmux维护进程<a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<h1 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h1><ul>
+<li>为什么使用tmux</li>
+</ul>
+<p>tmux是linux中医中管理窗口的程序，支持屏幕切分，而且具备丰富的命令行参数，使其灵活、动态的记性各种布局和操作，它可以做到一条命令就启动起来，左侧是终端，右侧是vim。使用它最直观的好处就是：通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”所欲的终端来连接这台远程主机，当然其功能远不止于此。（如果能够接受英文，请点击<a href="https://github.com/tmux/tmux" target="_blank" rel="external">tmux的github主页</a>，项目的readme也详细介绍了安装方法。）</p>
+<ul>
+<li><p>使用场景：</p>
+<ol>
+<li>多个服务同时运行时，可以同时看到多个控制台，不用一个终端一个终端的切换</li>
+<li>做服务器的关注性能时，tmux的多个panel可以很方便同时关注多项性能指标</li>
+<li>共享同一组工作环境：在办公室装了tmux在tmux里面运行的进程，在家通过ssh访问服务器后可以共享在tmux运行的工作环境</li>
+<li>ssh连接服务器调试程序时，突然broken pipe，那就要重新用ssh连接重新开启调试服务，特别麻烦，可以使用tmux找回原来打开的那些窗口。</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>tmux的基本概念</li>
+</ul>
+<p>tmux的三层主要元素：</p>
+<ol>
+<li><p><strong>session</strong>：一组窗口的集合，通常用来概括同一个任务。session可以有自己的名字便于任务之间的切换。</p>
+</li>
+<li><p><strong>Window</strong>：单个可见窗口，windows有自己的编号。</p>
+</li>
+<li><p><strong>Pane</strong>：窗格，被划分成小块的窗口。</p>
+</li>
+</ol>
+<ul>
+<li><p>tmux的安装</p>
+<ol>
+<li><p>centOS下的安装</p>
+<p> 第一步：安装tmux之前需要先安装一些支持的组件:</p>
+<p> 下载途径也有很多，我选择直接用yum下载安装。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install libevent-devel ncurses-devel</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>    第二步：下载安装tmux
+
+    下载途径有很多，我选择直接从github上下载下来。
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/tmux/tmux.git</div><div class="line">cd tmux</div><div class="line">sh autogen.sh</div><div class="line">./configure &amp;&amp; make</div><div class="line">make install</div></pre></td></tr></table></figure>
+
+
+2. Mac下的安装
+
+使用mac OSX上自带的homebrew安装。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew isntall tmux</div></pre></td></tr></table></figure>
+
+
+出奇的简单。。
+</code></pre><ul>
+<li>tmux的使用</li>
+</ul>
+<p>####session的使用</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查看／切换session</td>
+<td style="text-align:center">ctrl b s</td>
+</tr>
+<tr>
+<td>离开session</td>
+<td style="text-align:center">ctrl b d</td>
+</tr>
+<tr>
+<td>重命名当前的session</td>
+<td style="text-align:center">ctrl b $</td>
+<td>$ </td>
+</tr>
+</tbody>
+</table>
+<p>####Window的使用</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新建一个窗口</td>
+<td style="text-align:center">ctrl b c</td>
+</tr>
+<tr>
+<td>切换到上一个活动的窗口</td>
+<td style="text-align:center">ctrl b space</td>
+</tr>
+<tr>
+<td>关闭一个窗口</td>
+<td style="text-align:center">ctrl b &amp;</td>
+</tr>
+<tr>
+<td>使用窗口号切换</td>
+<td style="text-align:center">ctrl b 窗口号</td>
+</tr>
+</tbody>
+</table>
+<p>####Pane的使用</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切换到下一个窗格</td>
+<td style="text-align:center">ctrl b o</td>
+</tr>
+<tr>
+<td>查看所有窗格的编号</td>
+<td style="text-align:center">ctrl b q</td>
+</tr>
+<tr>
+<td>垂直拆分出一个新窗格</td>
+<td style="text-align:center">ctrl b “</td>
+</tr>
+<tr>
+<td>水平拆分出一个新窗格</td>
+<td style="text-align:center">ctrl b %</td>
+</tr>
+<tr>
+<td>暂时把一个窗格放到最大</td>
+<td style="text-align:center">ctrl b z</td>
+</tr>
+</tbody>
+</table>
+<p>参考文章：</p>
+<p><a href="http://cenalulu.github.io/linux/tmux/" target="_blank" rel="external">Tmux-Linux从业者必备利器</a>  </p>
+<p><a href="http://www.linuxidc.com/Linux/2014-11/109375.htm" target="_blank" rel="external">CentOS下tmux的安装和使用</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 服务器搭建 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[centOS部署node环境]]></title>
       <url>http://yoursite.com/2017/05/14/centOS%E9%85%8D%E7%BD%AEnode%E7%8E%AF%E5%A2%83/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装node<a id="more"></a></excerpt></p>
@@ -103,10 +259,9 @@
 <li><p>客户端</p>
 <pre><code>mongo
 </code></pre></li>
+<li><p>更多mongoDB的使用可以参考<a href="https://i.jakeyu.top/2016/10/21/CentOS%E5%AE%89%E8%A3%85mongodb%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_blank" rel="external">CentOS安装mongodb数据库</a></p>
+</li>
 </ul>
-<ol>
-<li>更多mongoDB的使用可以参考<a href="https://i.jakeyu.top/2016/10/21/CentOS%E5%AE%89%E8%A3%85mongodb%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_blank" rel="external">CentOS安装mongodb数据库</a></li>
-</ol>
 ]]></content>
       
         

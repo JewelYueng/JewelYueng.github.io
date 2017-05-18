@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="关于js基本类型的容易混淆点，双等号和三等号的区别，基本数据类型和引用数据类型的辨析">
+<meta name="description" content="如何使用tmux维护进程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js类型">
-<meta property="og:url" content="http://yoursite.com/2017/03/12/js类型/index.html">
+<meta property="og:title" content="centOS/Mac OSX安装使用tmux">
+<meta property="og:url" content="http://yoursite.com/2017/05/18/centOS-Mac-OSX安装使用tmux/index.html">
 <meta property="og:site_name" content="BiuBiu">
-<meta property="og:description" content="关于js基本类型的容易混淆点，双等号和三等号的区别，基本数据类型和引用数据类型的辨析">
-<meta property="og:updated_time" content="2017-03-16T08:37:02.000Z">
+<meta property="og:description" content="如何使用tmux维护进程">
+<meta property="og:updated_time" content="2017-05-18T12:31:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js类型">
-<meta name="twitter:description" content="关于js基本类型的容易混淆点，双等号和三等号的区别，基本数据类型和引用数据类型的辨析">
+<meta name="twitter:title" content="centOS/Mac OSX安装使用tmux">
+<meta name="twitter:description" content="如何使用tmux维护进程">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>js类型 | BiuBiu</title>
+<title>centOS/Mac OSX安装使用tmux | BiuBiu</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -273,11 +273,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-js类型" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-centOS-Mac-OSX安装使用tmux" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/12/js类型/" class="article-date">
-      <time datetime="2017-03-12T05:16:07.000Z" itemprop="datePublished">2017-03-12</time>
+      <a href="/2017/05/18/centOS-Mac-OSX安装使用tmux/" class="article-date">
+      <time datetime="2017-05-18T08:36:21.000Z" itemprop="datePublished">2017-05-18</time>
 </a>
 
 
@@ -292,7 +292,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js类型
+      centOS/Mac OSX安装使用tmux
     </h1>
   
 
@@ -303,7 +303,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jvascript基础/">jvascript基础</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器搭建/">服务器搭建</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,48 +313,148 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>关于js基本类型的容易混淆点，双等号和三等号的区别，基本数据类型和引用数据类型的辨析<a id="more"></a></excerpt></p>
-<p><the rest="" of="" contents="" |="" 余下全文=""><br>javascript里面包含了<strong>七种</strong>数据类型，其中6种称为<strong>基本数据类型</strong>(Boolean, null, undefined, Number, String, Symbol),剩下的就是Object对象。</the></p>
-<p>其中：<br>Boolean: 布尔值，true和false<br>null: 一个表明 null 值的特殊关键字。 JavaScript 是大小写敏感的，<strong>因此 null 与 Null、NULL或其他变量完全不同</strong>。<br>undefined: 变量未定义时的属性。<br>Number: 表示数字。<br>String: 表示字符串。<br>Symbol: ES6新增的数据类型，它的实例是唯一的且不可改变的。  </p>
-<p>接下来讨论几点比较容易迷惑的地方：  </p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>如何使用tmux维护进程<a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<h1 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h1><ul>
+<li>为什么使用tmux</li>
+</ul>
+<p>tmux是linux中医中管理窗口的程序，支持屏幕切分，而且具备丰富的命令行参数，使其灵活、动态的记性各种布局和操作，它可以做到一条命令就启动起来，左侧是终端，右侧是vim。使用它最直观的好处就是：通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再“浪费”所欲的终端来连接这台远程主机，当然其功能远不止于此。（如果能够接受英文，请点击<a href="https://github.com/tmux/tmux" target="_blank" rel="external">tmux的github主页</a>，项目的readme也详细介绍了安装方法。）</p>
+<ul>
+<li><p>使用场景：</p>
 <ol>
-<li><p>==与===的区别<br>==是比较值，而===是比较堆地址</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="string">"1"</span>;</div><div class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"1"</span>);</div><div class="line"><span class="built_in">console</span>.log(a == b);</div><div class="line"><span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(a === b);</div><div class="line"><span class="comment">//false,因为a和b指向的堆地址不同</span></div></pre></td></tr></table></figure>
+<li>多个服务同时运行时，可以同时看到多个控制台，不用一个终端一个终端的切换</li>
+<li>做服务器的关注性能时，tmux的多个panel可以很方便同时关注多项性能指标</li>
+<li>共享同一组工作环境：在办公室装了tmux在tmux里面运行的进程，在家通过ssh访问服务器后可以共享在tmux运行的工作环境</li>
+<li>ssh连接服务器调试程序时，突然broken pipe，那就要重新用ssh连接重新开启调试服务，特别麻烦，可以使用tmux找回原来打开的那些窗口。</li>
+</ol>
 </li>
-<li><p>false的等效值:  </p>
+</ul>
+<ul>
+<li>tmux的基本概念</li>
+</ul>
+<p>tmux的三层主要元素：</p>
+<ol>
+<li><p><strong>session</strong>：一组窗口的集合，通常用来概括同一个任务。session可以有自己的名字便于任务之间的切换。</p>
+</li>
+<li><p><strong>Window</strong>：单个可见窗口，windows有自己的编号。</p>
+</li>
+<li><p><strong>Pane</strong>：窗格，被划分成小块的窗口。</p>
 </li>
 </ol>
 <ul>
-<li>false</li>
-<li>undefined</li>
-<li>null</li>
-<li>0</li>
-<li>NaN</li>
-<li>空字符串””<br><strong>请注意：不要混淆原始布尔值的true和false 与 布尔对象的true和false</strong><pre><code class="javascript"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>)  
-<span class="keyword">if</span>(a){
-  ...
-<span class="comment">//此时将执行代码</span>
-}  
-<span class="keyword">if</span>(a == <span class="literal">true</span>){  
-  ...
-<span class="comment">//  此时不会执行代码</span>
-}
-</code></pre>
-</li>
-</ul>
+<li><p>tmux的安装</p>
 <ol>
-<li>有关于包装类型<br>ECMAScript还提供了三个特殊的引用类型Boolean,String,Number。我们称这三个特殊的引用类型为基本包装类型，也叫<strong>包装对象</strong>.也就是说当读取string,boolean和number这三个基本数据类型的时候，后台就会创建一个对应的基本包装类型对象，从而让我们能够调用一些方法来操作这些数据。  <pre><code class="javascript"><span class="keyword">let</span> str = <span class="string">"12213"</span>
-<span class="keyword">let</span> strNum = str.substr(<span class="number">2</span>)
-<span class="comment">/*
-当第二行代码访问str时后台有以下操作  
-1.创建String类型的一个实例  
-2.在实例上调用指定方法    
-3.销毁这个实例  
-*／</span>
-</code></pre>
+<li><p>centOS下的安装</p>
+<p> 第一步：安装tmux之前需要先安装一些支持的组件:</p>
+<p> 下载途径也有很多，我选择直接用yum下载安装。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install libevent-devel ncurses-devel</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>正因为有第三步这个销毁的动作，所以你应该能够明白为什么基本数据类型不可以添加属性和方法，这也正是基本装包类型和引用类型主要区别：对象的生存期.使用new操作符创建的引用类型的实例，在执行流离开当前作用域之前都是一直保存在内存中.而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁<br><a href="http://www.html-js.com/article/4015" target="_blank" rel="external">基本数据类型和引用类型的区别详解</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Grammar_and_Types" target="_blank" rel="external">js的数据类型|mdn</a></p>
+</li>
+</ul>
+<pre><code>    第二步：下载安装tmux
+
+    下载途径有很多，我选择直接从github上下载下来。
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/tmux/tmux.git</div><div class="line">cd tmux</div><div class="line">sh autogen.sh</div><div class="line">./configure &amp;&amp; make</div><div class="line">make install</div></pre></td></tr></table></figure>
+
+
+2. Mac下的安装
+
+使用mac OSX上自带的homebrew安装。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew isntall tmux</div></pre></td></tr></table></figure>
+
+
+出奇的简单。。
+</code></pre><ul>
+<li>tmux的使用</li>
+</ul>
+<p>####session的使用</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查看／切换session</td>
+<td style="text-align:center">ctrl b s</td>
+</tr>
+<tr>
+<td>离开session</td>
+<td style="text-align:center">ctrl b d</td>
+</tr>
+<tr>
+<td>重命名当前的session</td>
+<td style="text-align:center">ctrl b $</td>
+<td>$ </td>
+</tr>
+</tbody>
+</table>
+<p>####Window的使用</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新建一个窗口</td>
+<td style="text-align:center">ctrl b c</td>
+</tr>
+<tr>
+<td>切换到上一个活动的窗口</td>
+<td style="text-align:center">ctrl b space</td>
+</tr>
+<tr>
+<td>关闭一个窗口</td>
+<td style="text-align:center">ctrl b &amp;</td>
+</tr>
+<tr>
+<td>使用窗口号切换</td>
+<td style="text-align:center">ctrl b 窗口号</td>
+</tr>
+</tbody>
+</table>
+<p>####Pane的使用</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切换到下一个窗格</td>
+<td style="text-align:center">ctrl b o</td>
+</tr>
+<tr>
+<td>查看所有窗格的编号</td>
+<td style="text-align:center">ctrl b q</td>
+</tr>
+<tr>
+<td>垂直拆分出一个新窗格</td>
+<td style="text-align:center">ctrl b “</td>
+</tr>
+<tr>
+<td>水平拆分出一个新窗格</td>
+<td style="text-align:center">ctrl b %</td>
+</tr>
+<tr>
+<td>暂时把一个窗格放到最大</td>
+<td style="text-align:center">ctrl b z</td>
+</tr>
+</tbody>
+</table>
+<p>参考文章：</p>
+<p><a href="http://cenalulu.github.io/linux/tmux/" target="_blank" rel="external">Tmux-Linux从业者必备利器</a>  </p>
+<p><a href="http://www.linuxidc.com/Linux/2014-11/109375.htm" target="_blank" rel="external">CentOS下tmux的安装和使用</a></p>
 
       
     </div>
@@ -366,12 +466,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/17/Snake文档/">
-                    Snake文档
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/05/14/centOS配置node环境/">
+                    centOS部署node环境
                 </a>
             </div>
-        
         
     </nav>
 
@@ -381,7 +481,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tmux"><span class="toc-number">1.</span> <span class="toc-text">Tmux</span></a></li></ol>
         
     </div>
     <style>
@@ -417,7 +517,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"js类型　| BiuBiu　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"centOS/Mac OSX安装使用tmux　| BiuBiu　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -433,7 +533,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/12/js类型/" data-title="js类型" data-url="http://yoursite.com/2017/03/12/js类型/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/05/18/centOS-Mac-OSX安装使用tmux/" data-title="centOS/Mac OSX安装使用tmux" data-url="http://yoursite.com/2017/05/18/centOS-Mac-OSX安装使用tmux/"></div>
     <script>
         var duoshuoQuery = {short_name:"fournine"};
         var loadComment = function(){
@@ -456,15 +556,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/17/Snake文档/" title="上一篇: Snake文档">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/05/14/centOS配置node环境/" title="下一篇: centOS部署node环境">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
