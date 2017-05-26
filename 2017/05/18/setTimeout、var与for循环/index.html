@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/18/setTimeout、var与for循环/index.html">
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。">
-<meta property="og:updated_time" content="2017-05-26T12:43:42.000Z">
+<meta property="og:updated_time" content="2017-05-26T14:06:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="setTimeout、var与for循环">
 <meta name="twitter:description" content="ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。">
@@ -330,11 +330,11 @@
 </ol>
 <p>###现象解析：</p>
 <ol>
-<li><p>第一个是比较常见的新手错误，以为这样可以达到0s输出0，1s输出1…这样的效果。其实并不然，根据js的异步机制，异步代码会被放入一个事件队列，等到所有其他代码执行后才进行，而不会阻塞线程，而setTimeout就是一个异步函数。所以setTimeout会<strong>在for循环结束后</strong>才被调用，而且每隔一秒会向异步的事件队列中插入一次相应的回调函数，而在console.log(i)真正运行的时候，i已经变成4了， 所以就是每隔1s输出一次4</p>
+<li><p>第一个是比较常见的新手错误，以为这样可以达到0s输出0，1s输出1…这样的效果。其实并不然，根据<a href="">js的异步机制</a>，异步代码会被放入一个事件队列，等到所有其他代码执行后才进行，而不会阻塞线程，而setTimeout就是一个异步函数。所以setTimeout会<strong>在for循环结束后</strong>才被调用，而且每隔一秒会向异步的事件队列中插入一次相应的回调函数，而在console.log(i)真正运行的时候，i已经变成4了， 所以就是每隔1s输出一次4</p>
 </li>
-<li><p>case 2中的setTimeout第一个参数是一个立即执行函数(<a href="">什么是立即执行函数</a>)，所以每一次循环都立即执行，setTimeout的第二个参数并没有起作用。所以每一次循环都会输出当前i，所以几乎是马上而同时输出了0-3</p>
+<li><p>case 2中的setTimeout第一个参数是一个立即执行函数(<a href="https://jewelyueng.github.io/2017/05/26/js的立即执行函数/" target="_blank" rel="external">什么是立即执行函数</a>)，所以每一次循环都立即执行，setTimeout的第二个参数并没有起作用。所以每一次循环都会输出当前i，所以几乎是马上而同时输出了0-3</p>
 </li>
-<li><p>case 3中相当于for循环中的循环体是一个立即执行函数， </p>
+<li><p>case 3中相当于for循环中的循环体是一个立即执行函数，这里有闭包的效果，这个i这是就是一个局部变量，每一次执行时i的值都不一样，就会出现相应的情况</p>
 </li>
 </ol>
 </the>
@@ -458,7 +458,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js的立即执行函数/">js的立即执行函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/setTimeout、var与for循环/">setTimeout、var与for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/centOS-Mac-OSX安装使用tmux/">centOS/Mac OSX安装使用tmux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/14/centOS配置node环境/">centOS部署node环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/机器学习的基本概念/">机器学习的基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/centOS安装mongoDB/">centOS安装mongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/apply-call-bind/">apply,call,bind</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/浏览器渲染，repaint和reflow的区别和优化/">浏览器渲染，repaint和reflow的区别和优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/http事务/">http事务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js异步机制/">js异步机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js的立即执行函数/">js的立即执行函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/setTimeout、var与for循环/">setTimeout、var与for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/centOS-Mac-OSX安装使用tmux/">centOS/Mac OSX安装使用tmux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/14/centOS配置node环境/">centOS部署node环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/机器学习的基本概念/">机器学习的基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/centOS安装mongoDB/">centOS安装mongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/apply-call-bind/">apply,call,bind</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/浏览器渲染，repaint和reflow的区别和优化/">浏览器渲染，repaint和reflow的区别和优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/http事务/">http事务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
 
 
 
