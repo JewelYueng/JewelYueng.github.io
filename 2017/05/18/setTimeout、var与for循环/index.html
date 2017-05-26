@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/18/setTimeout、var与for循环/index.html">
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。">
-<meta property="og:updated_time" content="2017-05-26T14:06:18.000Z">
+<meta property="og:updated_time" content="2017-05-26T14:16:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="setTimeout、var与for循环">
 <meta name="twitter:description" content="ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。">
@@ -316,7 +316,8 @@
         <p><excerpt in="" index="" |="" 首页摘要=""><br>ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<p>###有趣的小现象<br><strong>Case1：</strong> </p>
+<p>###有趣的小现象</p>
+<p><strong>Case1：</strong> </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span>; i++)&#123;</div><div class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(i)</div><div class="line">	&#125;, i * <span class="number">1000</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>Case 2:</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span>; i++)&#123;</div><div class="line">	setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(i)</div><div class="line">	&#125;(i), i * <span class="number">1000</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -330,11 +331,11 @@
 </ol>
 <p>###现象解析：</p>
 <ol>
-<li><p>第一个是比较常见的新手错误，以为这样可以达到0s输出0，1s输出1…这样的效果。其实并不然，根据<a href="">js的异步机制</a>，异步代码会被放入一个事件队列，等到所有其他代码执行后才进行，而不会阻塞线程，而setTimeout就是一个异步函数。所以setTimeout会<strong>在for循环结束后</strong>才被调用，而且每隔一秒会向异步的事件队列中插入一次相应的回调函数，而在console.log(i)真正运行的时候，i已经变成4了， 所以就是每隔1s输出一次4</p>
+<li><p>第一个是比较常见的新手错误，以为这样可以达到0s输出0，1s输出1…这样的效果。其实并不然，根据<a href="https://jewelyueng.github.io/2017/05/26/js异步机制/" target="_blank" rel="external">js的异步机制</a>，异步代码会被放入一个事件队列，等到所有其他代码执行后才进行，而不会阻塞线程，而setTimeout就是一个异步函数。所以setTimeout会<strong>在for循环结束后</strong>才被调用，而且每隔一秒会向异步的事件队列中插入一次相应的回调函数，而在console.log(i)真正运行的时候，i已经变成4了， 所以就是每隔1s输出一次4</p>
 </li>
 <li><p>case 2中的setTimeout第一个参数是一个立即执行函数(<a href="https://jewelyueng.github.io/2017/05/26/js的立即执行函数/" target="_blank" rel="external">什么是立即执行函数</a>)，所以每一次循环都立即执行，setTimeout的第二个参数并没有起作用。所以每一次循环都会输出当前i，所以几乎是马上而同时输出了0-3</p>
 </li>
-<li><p>case 3中相当于for循环中的循环体是一个立即执行函数，这里有闭包的效果，这个i这是就是一个局部变量，每一次执行时i的值都不一样，就会出现相应的情况</p>
+<li><p>case 3中相当于for循环中的循环体是一个立即执行函数，这里有闭包的效果，这个i这是就是一个局部变量，每一次执行时i的值都不一样，就会出现相应的情况.</p>
 </li>
 </ol>
 </the>
