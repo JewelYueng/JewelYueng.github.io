@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/26/js的立即执行函数/index.html">
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="简单的说一下js的立即执行函数">
-<meta property="og:updated_time" content="2017-05-26T14:24:41.000Z">
+<meta property="og:updated_time" content="2017-06-04T06:01:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js的立即执行函数">
 <meta name="twitter:description" content="简单的说一下js的立即执行函数">
@@ -316,9 +316,17 @@
         <p><excerpt in="" index="" |="" 首页摘要=""><br>简单的说一下js的立即执行函数<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<p>#一、js的单线程</p>
-<p>js是单线程的，其中单线程是指在js引擎中负责解释和执行js代码的线程只有一个，经常称为<strong>主线程</strong>，但是实际上还存在其他的线程，例如说setTimeout之类异步操作的线程，在这里称为<strong>工作线程</strong></p>
-<p>#二、</p>
+<h1 id="立即执行函数的概念"><a href="#立即执行函数的概念" class="headerlink" title="立即执行函数的概念"></a>立即执行函数的概念</h1><p>立即执行函数（Immediate Functions）是一种语法,可以让函数再定以后马上被执行，比如</p>
+<pre><code>(function () {
+    console.log(&apos;我是第一种立即执行函数&apos;)
+}())
+</code></pre><p>或者下面的格式</p>
+<pre><code>(function () {
+    console.log(&apos;我是第二种立即执行函数&apos;)
+})()
+</code></pre><p>参考文章<a href="https://segmentfault.com/q/1010000009490850" target="_blank" rel="external">setTimeout中的立即函数</a></p>
+<p><a href="http://blog.csdn.net/qq838419230/article/details/8030078" target="_blank" rel="external">JavaScript学习笔记(十四) 立即执行函数</a></p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/31/2289423.html" target="_blank" rel="external">深入理解JavaScript系列（4）：立即调用的函数表达式</a></p>
 </the>
       
     </div>
@@ -351,7 +359,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#立即执行函数的概念"><span class="toc-number">1.</span> <span class="toc-text">立即执行函数的概念</span></a></li></ol>
         
     </div>
     <style>
@@ -440,7 +448,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js异步机制/">js异步机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js的立即执行函数/">js的立即执行函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/setTimeout、var与for循环/">setTimeout、var与for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/centOS-Mac-OSX安装使用tmux/">centOS/Mac OSX安装使用tmux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/14/centOS配置node环境/">centOS部署node环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/机器学习的基本概念/">机器学习的基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/centOS安装mongoDB/">centOS安装mongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/apply-call-bind/">apply,call,bind</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/浏览器渲染，repaint和reflow的区别和优化/">浏览器渲染，repaint和reflow的区别和优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/http事务/">http事务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/shadowsocks/">shadowsocks搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js异步机制/">js异步机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js的立即执行函数/">js的立即执行函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/setTimeout、var与for循环/">setTimeout、var与for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/centOS-Mac-OSX安装使用tmux/">centOS/Mac OSX安装使用tmux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/机器学习的基本概念/">机器学习的基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/centOS安装mongoDB/">centOS安装mongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/apply-call-bind/">apply,call,bind</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/浏览器渲染，repaint和reflow的区别和优化/">浏览器渲染，repaint和reflow的区别和优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/http事务/">http事务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
 
 
 

@@ -4,10 +4,86 @@
   
     
     <entry>
+      <title><![CDATA[shadowsocks搭建教程]]></title>
+      <url>http://yoursite.com/2017/12/21/shadowsocks/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>简单就学会ss搭建，科学上网。<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h1 id="科学上网指北"><a href="#科学上网指北" class="headerlink" title="科学上网指北"></a>科学上网指北</h1><h2 id="简单的shadowsocks介绍（可以跳过）"><a href="#简单的shadowsocks介绍（可以跳过）" class="headerlink" title="简单的shadowsocks介绍（可以跳过）"></a>简单的shadowsocks介绍（可以跳过）</h2><p>shadowsocks是一种基于<a href="https://zh.wikipedia.org/wiki/SOCKS#SOCK5" target="_blank" rel="external">socks5</a>代理方式的网络数据加密传输包，并采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。shadowsocks分为服务器端和客户端，在使用之前需要先将服务器部署到服务器上，然后通过客户端连接并创建本地代理。</p>
+<p>其运行原理与其他代理工具基本相同，使用特定的中转服务器完成数据传输。当我们在服务器端部署完shadowsocks以后，只需要在客户端输入指定的密码，加密方式和端口，就可以进行连接。在成功连接到服务器后，客户端会在用户的电脑上构建一个本地Socks5代理。浏览网络时，网络流量会被分到本地socks5代理，客户端将其加密之后发送到服务器，服务器以同样的加密方式将流量回传给客户端，以此实现代理上网。</p>
+<p>更详细的介绍请参见 <a href="https://zh.wikipedia.org/wiki/Shadowsocks" target="_blank" rel="external">wiki</a></p>
+<h2 id="物资准备"><a href="#物资准备" class="headerlink" title="物资准备"></a>物资准备</h2><ol>
+<li>一个服务器，在墙外的服务器。我在这里使用的是digitalocean购买的美国节点<del>（选择他是因为github的学生优惠包里面送了这个网站的50美金，能用十一个月呢几乎）</del></li>
+<li>一颗翻墙的心。</li>
+</ol>
+<h2 id="指北正文"><a href="#指北正文" class="headerlink" title="指北正文"></a>指北正文</h2><p>下面所提供的所有方法其实就只是一个核心内容：<strong>在服务器上部署ss</strong></p>
+<p>买了vps以后先选择一个系统（最好是linux）然后本地连接上去。连接方法这里不细说，用ssh或者直接在vps平台上也可以登录上去。</p>
+<h4 id="正经的ss（以centos7为例）"><a href="#正经的ss（以centos7为例）" class="headerlink" title="正经的ss（以centos7为例）"></a>正经的ss（以centos7为例）</h4><p>请注意 centos6 和 7 的教程不是完全一样的哈，如果选择了centos请注意一下，此外ubuntu正经搭建ss过程请点击<a href="http://blog.csdn.net/yy243/article/details/52370170" target="_blank" rel="external">这里</a></p>
+<p><strong>正文开始</strong></p>
+<ol>
+<li><p>安装shadowsocks</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 安装python setup tools</div><div class="line">yum install python-setuptools-y</div><div class="line">// 安装pip</div><div class="line">easy_install pip</div><div class="line">// 升级pip</div><div class="line">pip install -upgrade pip</div><div class="line">// 安装shadowsocks</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>进行shadowsocks配置</p>
+<p> 先去到ss的配置文件进行修改，文本路径一般为 /etc/shadowsocks-libev/config.json<br> 现在使用vim进行编辑</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/shadowsocks-libev/config.json</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>然后对其进行以下内容的修改
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&quot;server&quot;: &quot;0.0.0.0&quot;,</div><div class="line">&quot;server_port&quot;: 8989,</div><div class="line">&quot;local_address&quot;: &quot;127.0.0.1&quot;,</div><div class="line">&quot;local_port&quot;: &quot;1080&quot;,</div><div class="line">&quot;password&quot;: &quot;yourpassword&quot;,</div><div class="line">&quot;timeout&quot;: 300,</div><div class="line">&quot;method&quot;: &quot;ase-256-cfb&quot;,</div><div class="line">&quot;fast_open&quot;: false,</div><div class="line">&quot;workers&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+
+其中，password就是你的密码，server_port就是在客户端填写的端口，可以自己改成喜欢的，method是加密方式，如果想在路由器上运行的话可以改成rc4-md5这样路由器的负荷会小一些，同时加密的安全性也不错。
+</code></pre><ol>
+<li><p>创建服务</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /usr/lib/systemd/system/shadowsocks.service</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>然后写入下面的内容
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">	[Unit]</div><div class="line">Description=Shadowsocks Server</div><div class="line">Documentation=https://github.com/shadowsocks/shadowsocks</div><div class="line">After=network.target remote-fs.target nss-lookup.target</div><div class="line">[Service]</div><div class="line">Type=forking</div><div class="line">#设置启动时的配置文件,根据自己的需求改.</div><div class="line">ExecStart=/usr/bin/ssserver -c /etc/shadowsocks-libev/config.json</div><div class="line">-d start</div><div class="line">ExecReload=/bin/kill -HUP $MAINPID</div><div class="line">ExecStop=/usr/bin/ssserver -d stop</div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure>
+
+
+保存后退出。
+</code></pre><ol>
+<li><p>启动服务</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl enable shadowsocks</div><div class="line">systemctl start shadowsocks</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>配置防火墙</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd –permanent –add-port=8989/tcp</div><div class="line">firewall-cmd –permanent –add-port=8989/udp</div><div class="line">firewall-cmd –reload</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="ssr（以ubuntu为例）"><a href="#ssr（以ubuntu为例）" class="headerlink" title="ssr（以ubuntu为例）"></a>ssr（以ubuntu为例）</h4><p>简单粗暴点就是三行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate	 https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</div><div class="line">chmod +x shadowsocksR.sh</div><div class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</div></pre></td></tr></table></figure>
+<p>回车，进入ss的配置。<br>可以按照提示输入相应的东西，也可以一路回车，最后到shadowsocks.json中修改配置。<br>配置完成会给你输出你的shadowsocks配置，九子啊客户端中配置相应的项就好了。</p>
+<p>详细参看<a href="https://jasper-1024.github.io/2016/06/26/VPS科学上网教程系列/" target="_blank" rel="external">科学上网教程系列</a>中的第七点</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>我是不是漏掉了客户端没有讲？<br>不同操作系统使用客户端不太一样，因为我用的macOS所以我这里只能提供mac客户端的下载链接了</p>
+<p><a href="https://github.com/qinyuhang/ShadowsocksX-NG-R/releases" target="_blank" rel="external">shadowsocksX-NG-R</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="http://ryantech.top/posts/16" target="_blank" rel="external">CentOS 7 搭建ShadowSocks(ss)服务器</a></p>
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 服务器搭建 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[js异步机制]]></title>
       <url>http://yoursite.com/2017/05/26/js%E5%BC%82%E6%AD%A5%E6%9C%BA%E5%88%B6/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>介绍一下js的异步机制<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the>]]></content>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h1 id="一、js的单线程"><a href="#一、js的单线程" class="headerlink" title="一、js的单线程"></a>一、js的单线程</h1><p>js是单线程的，其中单线程是指在js引擎中负责解释和执行js代码的线程只有一个，经常称为<strong>主线程</strong>，但是实际上还存在其他的线程，例如说setTimeout之类异步操作的线程，在这里称为<strong>工作线程</strong></p>
+<h1 id="二、同步"><a href="#二、同步" class="headerlink" title="二、同步"></a>二、同步</h1></the>]]></content>
       
         
         <tags>
@@ -24,9 +100,17 @@
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>简单的说一下js的立即执行函数<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<p>#一、js的单线程</p>
-<p>js是单线程的，其中单线程是指在js引擎中负责解释和执行js代码的线程只有一个，经常称为<strong>主线程</strong>，但是实际上还存在其他的线程，例如说setTimeout之类异步操作的线程，在这里称为<strong>工作线程</strong></p>
-<p>#二、</p>
+<h1 id="立即执行函数的概念"><a href="#立即执行函数的概念" class="headerlink" title="立即执行函数的概念"></a>立即执行函数的概念</h1><p>立即执行函数（Immediate Functions）是一种语法,可以让函数再定以后马上被执行，比如</p>
+<pre><code>(function () {
+    console.log(&apos;我是第一种立即执行函数&apos;)
+}())
+</code></pre><p>或者下面的格式</p>
+<pre><code>(function () {
+    console.log(&apos;我是第二种立即执行函数&apos;)
+})()
+</code></pre><p>参考文章<a href="https://segmentfault.com/q/1010000009490850" target="_blank" rel="external">setTimeout中的立即函数</a></p>
+<p><a href="http://blog.csdn.net/qq838419230/article/details/8030078" target="_blank" rel="external">JavaScript学习笔记(十四) 立即执行函数</a></p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/31/2289423.html" target="_blank" rel="external">深入理解JavaScript系列（4）：立即调用的函数表达式</a></p>
 </the>]]></content>
       
         
@@ -44,7 +128,7 @@
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<h3 id="有趣的小现象"><a href="#有趣的小现象" class="headerlink" title="有趣的小现象"></a>有趣的小现象</h3><p><strong>Case1：</strong> </p>
+<h1 id="有趣的小现象"><a href="#有趣的小现象" class="headerlink" title="有趣的小现象"></a>有趣的小现象</h1><p><strong>Case1：</strong> </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span>; i++)&#123;</div><div class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(i)</div><div class="line">	&#125;, i * <span class="number">1000</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>Case 2:</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span>; i++)&#123;</div><div class="line">	setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(i)</div><div class="line">	&#125;(i), i * <span class="number">1000</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -56,7 +140,7 @@
 <li>几乎是马上输出了0-3</li>
 <li>先输出0，1s后输出1，2s后输出2…3s后输出3</li>
 </ol>
-<h3 id="现象解析："><a href="#现象解析：" class="headerlink" title="现象解析："></a>现象解析：</h3><ol>
+<h1 id="现象解析："><a href="#现象解析：" class="headerlink" title="现象解析："></a>现象解析：</h1><ol>
 <li><p>第一个是比较常见的新手错误，以为这样可以达到0s输出0，1s输出1…这样的效果。其实并不然，根据<a href="https://jewelyueng.github.io/2017/05/26/js异步机制/" target="_blank" rel="external">js的异步机制</a>，异步代码会被放入一个事件队列，等到所有其他代码执行后才进行，而不会阻塞线程，而setTimeout就是一个异步函数。所以setTimeout会<strong>在for循环结束后</strong>才被调用，而且每隔一秒会向异步的事件队列中插入一次相应的回调函数，而在console.log(i)真正运行的时候，i已经变成4了， 所以就是每隔1s输出一次4</p>
 </li>
 <li><p>case 2中的setTimeout第一个参数是一个立即执行函数(<a href="https://jewelyueng.github.io/2017/05/26/js的立即执行函数/" target="_blank" rel="external">什么是立即执行函数</a>)，所以每一次循环都立即执行，setTimeout的第二个参数并没有起作用。所以每一次循环都会输出当前i，所以几乎是马上而同时输出了0-3</p>
@@ -64,6 +148,7 @@
 <li><p>case 3中相当于for循环中的循环体是一个立即执行函数，这里有闭包的效果，这个i这是就是一个局部变量，每一次执行时i的值都不一样，就会出现相应的情况.</p>
 </li>
 </ol>
+<p>感谢segmentfault的<a href="https://segmentfault.com/q/1010000004998697" target="_blank" rel="external">for循环中setTimeout问题</a>以及<a href="https://segmentfault.com/q/1010000007759958" target="_blank" rel="external">对于javascript里的块作用域不是很理解，比如下面的这段代码为什么会输出5个6？</a></p>
 </the>]]></content>
       
         
@@ -228,57 +313,6 @@
             <tag> 服务器搭建 </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[centOS部署node环境]]></title>
-      <url>http://yoursite.com/2017/05/14/centOS%E9%85%8D%E7%BD%AEnode%E7%8E%AF%E5%A2%83/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>想在CentOS下搭建一个node+mongooseDB服务器？这边mark下了如何在CentOS上安装node<a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-<h1 id="CentOS上部署node环境"><a href="#CentOS上部署node环境" class="headerlink" title="CentOS上部署node环境"></a>CentOS上部署node环境</h1><ol>
-<li>wget命令下载Node.js安装包。该安装包是编译好的文件，解压之后，在bin文件夹中就已经存在node和npm，无需重复编译。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz</div></pre></td></tr></table></figure>
-<p><strong>此处，下载的是v6.9.5版本，如想直接下载某个版本就把v6.9.5改成相应的版本即可，也可以使用下面的nvm版本管理工具来进行node其他版本的下载</strong></p>
-<ol>
-<li>解压文件</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar xvf node-v6.9.5-linux-x64.tar.xz</div></pre></td></tr></table></figure>
-<ol>
-<li>创建软连接，使node和npm命令全局有效，通过创建软连接的方法，使得在任意目录下斗可以直接使用node和npm命令</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -s /root/node-v6.9.5-linux-x64/bin/node /usr/local/bin/node</div><div class="line">ln -s /root/node-v6.9.5-linux-x64/bin/npm /usr/local/bin/npm</div></pre></td></tr></table></figure>
-<ol>
-<li>检查是否安装成功。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//查看node版本</div><div class="line">node -v</div><div class="line">//查看npm版本</div><div class="line">npm -v</div></pre></td></tr></table></figure>
-<p>5.到这里node的环境就已经安装完毕了。接下来就会是node环境的部署，这里使用nvm来安装node的多版本，安装步骤如下：</p>
-<p>a. 直接使用git将源码克隆在本地的～/.nvm目录下，并检查最新版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install git</div><div class="line">git clone https://github.com/cnpm/nvm.git ~/.nvm &amp;&amp; cd ~/.nvm &amp;&amp; git checkout `git describe --abbrev=0 --tags`</div></pre></td></tr></table></figure>
-<p>b.激活nvm</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; /etc/profile</div><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
-<p>c.nvm安装完毕，可以使用命令来管理node    </p>
-<ul>
-<li>列出所有node的版本</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm list-remote</div></pre></td></tr></table></figure>
-<ul>
-<li>安装其他node版本</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install v7.10.0</div></pre></td></tr></table></figure>
-<ul>
-<li>查看已安装的版本</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm -ls</div></pre></td></tr></table></figure>
-<ul>
-<li>切换版本</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use v7.10.0</div></pre></td></tr></table></figure>
-<p>更多操作可以输入<code>nvm help</code>命令查看</p>
-</the>]]></content>
-      
         
     </entry>
     

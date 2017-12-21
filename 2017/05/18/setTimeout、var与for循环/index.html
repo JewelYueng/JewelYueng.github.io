@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/18/setTimeout、var与for循环/index.html">
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。">
-<meta property="og:updated_time" content="2017-05-26T14:24:51.000Z">
+<meta property="og:updated_time" content="2017-05-26T14:30:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="setTimeout、var与for循环">
 <meta name="twitter:description" content="ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。">
@@ -316,7 +316,7 @@
         <p><excerpt in="" index="" |="" 首页摘要=""><br>ES6中的let关键字的出现必然有它的原因，var关键字的缺陷是什么。<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<h3 id="有趣的小现象"><a href="#有趣的小现象" class="headerlink" title="有趣的小现象"></a>有趣的小现象</h3><p><strong>Case1：</strong> </p>
+<h1 id="有趣的小现象"><a href="#有趣的小现象" class="headerlink" title="有趣的小现象"></a>有趣的小现象</h1><p><strong>Case1：</strong> </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span>; i++)&#123;</div><div class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(i)</div><div class="line">	&#125;, i * <span class="number">1000</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>Case 2:</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span>; i++)&#123;</div><div class="line">	setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(i)</div><div class="line">	&#125;(i), i * <span class="number">1000</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -328,7 +328,7 @@
 <li>几乎是马上输出了0-3</li>
 <li>先输出0，1s后输出1，2s后输出2…3s后输出3</li>
 </ol>
-<h3 id="现象解析："><a href="#现象解析：" class="headerlink" title="现象解析："></a>现象解析：</h3><ol>
+<h1 id="现象解析："><a href="#现象解析：" class="headerlink" title="现象解析："></a>现象解析：</h1><ol>
 <li><p>第一个是比较常见的新手错误，以为这样可以达到0s输出0，1s输出1…这样的效果。其实并不然，根据<a href="https://jewelyueng.github.io/2017/05/26/js异步机制/" target="_blank" rel="external">js的异步机制</a>，异步代码会被放入一个事件队列，等到所有其他代码执行后才进行，而不会阻塞线程，而setTimeout就是一个异步函数。所以setTimeout会<strong>在for循环结束后</strong>才被调用，而且每隔一秒会向异步的事件队列中插入一次相应的回调函数，而在console.log(i)真正运行的时候，i已经变成4了， 所以就是每隔1s输出一次4</p>
 </li>
 <li><p>case 2中的setTimeout第一个参数是一个立即执行函数(<a href="https://jewelyueng.github.io/2017/05/26/js的立即执行函数/" target="_blank" rel="external">什么是立即执行函数</a>)，所以每一次循环都立即执行，setTimeout的第二个参数并没有起作用。所以每一次循环都会输出当前i，所以几乎是马上而同时输出了0-3</p>
@@ -336,6 +336,7 @@
 <li><p>case 3中相当于for循环中的循环体是一个立即执行函数，这里有闭包的效果，这个i这是就是一个局部变量，每一次执行时i的值都不一样，就会出现相应的情况.</p>
 </li>
 </ol>
+<p>感谢segmentfault的<a href="https://segmentfault.com/q/1010000004998697" target="_blank" rel="external">for循环中setTimeout问题</a>以及<a href="https://segmentfault.com/q/1010000007759958" target="_blank" rel="external">对于javascript里的块作用域不是很理解，比如下面的这段代码为什么会输出5个6？</a></p>
 </the>
       
     </div>
@@ -368,7 +369,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#有趣的小现象"><span class="toc-number">1.</span> <span class="toc-text">有趣的小现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#现象解析："><span class="toc-number">2.</span> <span class="toc-text">现象解析：</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#有趣的小现象"><span class="toc-number">1.</span> <span class="toc-text">有趣的小现象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现象解析："><span class="toc-number">2.</span> <span class="toc-text">现象解析：</span></a></li></ol>
         
     </div>
     <style>
@@ -457,7 +458,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js异步机制/">js异步机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js的立即执行函数/">js的立即执行函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/setTimeout、var与for循环/">setTimeout、var与for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/centOS-Mac-OSX安装使用tmux/">centOS/Mac OSX安装使用tmux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/14/centOS配置node环境/">centOS部署node环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/机器学习的基本概念/">机器学习的基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/centOS安装mongoDB/">centOS安装mongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/apply-call-bind/">apply,call,bind</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/浏览器渲染，repaint和reflow的区别和优化/">浏览器渲染，repaint和reflow的区别和优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/http事务/">http事务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/shadowsocks/">shadowsocks搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js异步机制/">js异步机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/js的立即执行函数/">js的立即执行函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/setTimeout、var与for循环/">setTimeout、var与for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/centOS-Mac-OSX安装使用tmux/">centOS/Mac OSX安装使用tmux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/机器学习的基本概念/">机器学习的基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/centOS安装mongoDB/">centOS安装mongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/apply-call-bind/">apply,call,bind</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/html语义化/">html语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/浏览器渲染，repaint和reflow的区别和优化/">浏览器渲染，repaint和reflow的区别和优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/http事务/">http事务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/js正则表达式/">js正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/js事件流/">js事件模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/让一个元素看不见的方法/">让一个元素看不见的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/水平竖直居中的方法/">水平竖直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Snake文档/">Snake文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/js类型/">js类型</a></li></ul>
 
 
 
