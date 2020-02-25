@@ -4,6 +4,188 @@
   
     
     <entry>
+      <title><![CDATA[文本标注工具]]></title>
+      <url>http://yoursite.com/2018/08/15/%E6%96%87%E6%9C%AC%E6%A0%87%E6%B3%A8%E5%B7%A5%E5%85%B7/</url>
+      <content type="html"><![CDATA[<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
+<li><a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/78560121" target="_blank" rel="external">构想：中文文本标注工具（内附多个开源文本标注工具）</a></li>
+<li><a href="https://github.com/deepwel/Chinese-Annotator" target="_blank" rel="external">构想：中文文本标注工具【github】</a></li>
+<li><a href="https://juejin.im/post/5b2092b06fb9a01e3b01b144" target="_blank" rel="external">使用Transformer与无监督学习，OpenAI提出可迁移至多种NLP任务的通用模型</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1006327" target="_blank" rel="external">通用文本标注工具 labelme</a></li>
+<li><a href="https://blog.openai.com/language-unsupervised/" target="_blank" rel="external">Improving Language Understanding with Unsupervised Learning(用无监督学习提高语言理解能力)</a></li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[命名实体识别NER]]></title>
+      <url>http://yoursite.com/2018/08/15/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%ABNER/</url>
+      <content type="html"><![CDATA[<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
+<li><a href="https://mp.weixin.qq.com/s/yDxv0ifpz_7z-DIY1DdfAQ" target="_blank" rel="external">论文浅尝 | 基于神经网络的实体识别和关系抽取联合学习</a></li>
+<li><a href="https://www.paperweekly.site/papers/notes/146" target="_blank" rel="external">神经网络结构在命名实体识别（NER）中的应用</a></li>
+<li><a href="http://neuroner.com" target="_blank" rel="external">A Named-Entity Recognition Program based on Neural Networks and Easy to Use</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/29412214" target="_blank" rel="external">基于深度学习的命名实体识别详解（附Github代码）【知乎】</a></li>
+<li><a href="https://github.com/shiyybua/NER" target="_blank" rel="external">一个中文的实体命名识别系统【Github】</a></li>
+<li><a href="http://michelleful.github.io/code-blog/2015/09/10/parsing-chinese-with-stanford/" target="_blank" rel="external">用斯坦福NLP解析中文文本</a></li>
+<li><a href="https://blog.csdn.net/weixin_39837402/article/details/80176048" target="_blank" rel="external">【论文笔记】命名实体识别(NER)论文整理</a></li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[自然语言处理入门（一）]]></title>
+      <url>http://yoursite.com/2018/08/14/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/28054589" target="_blank" rel="external">完全图解RNN、RNN变体、Seq2Seq、Attention机制</a></li>
+<li><a href="https://blog.csdn.net/Jerr__y/article/details/53749693" target="_blank" rel="external">Seq2Seq学习笔记</a></li>
+<li><a href="https://www.jianshu.com/p/1d3de928f40c" target="_blank" rel="external">Seq2Seq入门</a></li>
+<li><a href="https://www.zhihu.com/question/23765351" target="_blank" rel="external">【知乎】Softmax函数的特点和作用是什么</a></li>
+<li><a href="https://segmentfault.com/a/1190000011480420" target="_blank" rel="external">TF-IDF、词袋模型与特征工程</a></li>
+<li><a href="https://blog.csdn.net/sangyongjia/article/details/52440063" target="_blank" rel="external">TF-IDF及其算法</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26306795" target="_blank" rel="external">秒懂词向量Word2vec的本质【知乎】</a></li>
+<li><a href="https://blog.csdn.net/malefactor/article/details/50550211" target="_blank" rel="external">自然语言处理中的Attention Model：是什么及为什么</a></li>
+<li><a href="https://blog.csdn.net/malefactor" target="_blank" rel="external">张俊林的博客</a></li>
+<li><a href="https://yq.aliyun.com/articles/158691" target="_blank" rel="external">自然语言理解-从规则到深度学习</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27151397" target="_blank" rel="external">【知乎】【AI前沿】机器阅读理解与问答·Dynamic Co-Attention Networks</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27421983" target="_blank" rel="external">模型汇总-14 多任务学习-Multitask Learning概述【知乎】</a></li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[远程监督在关系抽取上的应用]]></title>
+      <url>http://yoursite.com/2018/08/14/%E8%BF%9C%E7%A8%8B%E7%9B%91%E7%9D%A3%E5%9C%A8%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+      <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#参考文献">参考文献</a></li>
+<li><a href="#参考网站">参考网站</a></li>
+</ul>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="关系抽取"><a href="#关系抽取" class="headerlink" title="关系抽取"></a>关系抽取</h3><p>关系抽取事信息抽取的重要子任务，主要的目的是将非结构化或者半结构化描述的自然语言文本转化成结构化数据。在文本中识别出实体后，关系抽取负责抽取实体之间的语义关系。</p>
+<h3 id="遇到的困难"><a href="#遇到的困难" class="headerlink" title="遇到的困难"></a>遇到的困难</h3><p>进行关系抽取的学习需要大部分训练数据，而为了得到训练数据，需要人工来对语料进行标记，这个过程需要大量的时间成本和人力成本。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在2009年</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="http://www.aclweb.org/anthology/C14-1220" target="_blank" rel="external">Relation Classification via Convolutional Deep Neural Network</a></li>
+<li><a href="http://www.nlpr.ia.ac.cn/cip/~liukang/liukangPageFile/AAAI2017.pdf" target="_blank" rel="external">Distant Supervision for Relation Extraction with Sentence-level Attention and Entity Descriptions</a></li>
+<li><a href="https://www.aclweb.org/anthology/P09-1113" target="_blank" rel="external">Distant supervision for relation extraction without labeled data</a></li>
+</ol>
+<h2 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/27029826" target="_blank" rel="external">Neural Relation Extraction with Selective Attention over Instances阅读笔记    【知乎】</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/22666876" target="_blank" rel="external"><neural relation="" extraction="" with="" selective="" attention="" over="" instances="">笔记【知乎】</neural></a></li>
+<li><a href="https://github.com/thunlp/NRE" target="_blank" rel="external">Neural Relation Extraction with Selective Attention over Instances的代码</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/32268101" target="_blank" rel="external"><reinforcement learning="" for="" relation="" classification="" from="" noisy="" data="">阅读笔记【知乎】</reinforcement></a></li>
+<li><a href="https://yq.aliyun.com/articles/174880" target="_blank" rel="external">【PaperWeekly 第31期】 | 远程监督在关系抽取中的应用</a></li>
+<li><a href="http://www.sohu.com/a/165856071_465975" target="_blank" rel="external">一周论文 | 关于远程监督，我们来推荐几篇值得读的论文</a></li>
+<li><a href="http://cairohy.github.io/2017/05/10/deeplearning/NLP-RelationExtraction-AAAI2017-%E3%80%8ADistant%20Supervision%20for%20Relation%20Extraction%20with%20Sentence-level%20Attention%20and%20Entity%20Descriptions%E3%80%8B/" target="_blank" rel="external">paperWeekly知识图谱阅读小组-《Distant Supervision for Relation Extraction with Sentence-level Attention and Entity Descriptions》</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/35051652" target="_blank" rel="external">Distant Supervision for Relation Extraction with Sentence-Level Attention and Entity Descriptions【知乎】</a></li>
+<li></li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[docker学习]]></title>
+      <url>http://yoursite.com/2018/08/14/docker%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<h1 id="Docker学习笔记"><a href="#Docker学习笔记" class="headerlink" title="Docker学习笔记"></a>Docker学习笔记</h1><h2 id="Docker介绍"><a href="#Docker介绍" class="headerlink" title="Docker介绍"></a>Docker介绍</h2><h2 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h2><ol>
+<li><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-JenkinsDockerSahi/index.html" target="_blank" rel="external">构建基于 Docker + Jenkins + Sahi 的 Web UI 自动化测试环境</a></li>
+<li><a href="https://yq.aliyun.com/articles/63035?spm=a2c4e.11153940.blogcont63517.9.1d773a6ct4ot2k" target="_blank" rel="external">大话Docker入门（一）</a></li>
+<li><a href="https://blog.csdn.net/21cnbao/article/details/56275456" target="_blank" rel="external">宋宝华：Docker 最初的2小时(Docker从入门到入门)</a></li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[知识存储]]></title>
+      <url>http://yoursite.com/2018/08/14/%E7%9F%A5%E8%AF%86%E5%AD%98%E5%82%A8/</url>
+      <content type="html"><![CDATA[<h1 id="知识存储"><a href="#知识存储" class="headerlink" title="知识存储"></a>知识存储</h1><p><a href="https://github.com/memect/kg-beijing/wiki/第一期w3：知识存储" target="_blank" rel="external">知识存储</a>解决如何管理大量的结构化数据，存储的途径主要有RDF存储以及数据库存储两类。</p>
+<h2 id="数据库选择"><a href="#数据库选择" class="headerlink" title="数据库选择"></a>数据库选择</h2><p>我们可以用不同的数据库工具。现代的关系数据库可能可以解决大多数需要知识图谱的场合。某些特殊场合，我们需要图数据库。目前<a href="https://zhuanlan.zhihu.com/p/31921368" target="_blank" rel="external">大规模的知识图谱的存储</a>一般采用图数据库做为最基本的存储引擎。图数据库的优点在于其天然的能表示知识图谱结构，图中的节点表示知识图谱的对象，图中的边表示知识图谱的对象关系；但是其缺点是图数据库的更新比较复杂，对于复杂查询的支持不够。所以我们使用以图数据库为主，结合其他系统的方式来存储知识图谱。</p>
+<h3 id="图数据库选择"><a href="#图数据库选择" class="headerlink" title="图数据库选择"></a>图数据库选择</h3><p>Cayley 的github地址：<a href="https://github.com/cayleygraph/cayley/blob/master/docs/Container.md" target="_blank" rel="external">https://github.com/cayleygraph/cayley/blob/master/docs/Container.md</a></p>
+<p>在简书上也有对Cayley的使用教程：<a href="https://www.jianshu.com/p/ffda84334f77" target="_blank" rel="external">Cayley数据库</a></p>
+<p>在 Google的开发者大会上，有展示<a href="https://www.youtube.com/watch?v=W9pRpSW_KqA" target="_blank" rel="external">如何使用Cayley进行一个小型的知识图谱的构建</a>,可是其实讲的比较少，数据格式也有点局限，亮点是搜索时居然可以像js一样写函数。</p>
+<p>可是相应的教程文档比较少，不像Neo4j，随手一查都会有一些<a href="https://www.w3cschool.cn/neo4j/neo4j_cql_create_node.html" target="_blank" rel="external">中文文档</a></p>
+<p>据说还有另外一个比较常用的图数据库：dgraph，而且大家对他的期望也挺高的，可以了解一下，<a href="https://dgraph.io" target="_blank" rel="external">github</a>主页非常可爱。网上也有很多<a href="https://www.oschina.net/p/dgraph" target="_blank" rel="external">对dgraph和neo4j的比较分析</a>,中文文档偏少，由于时间考虑暂不深入了解。</p>
+<p>两者比较</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Neo4j</th>
+<th>Cayley</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查询语言</td>
+<td><a href="https://neo4j.com/developer/cypher-query-language/" target="_blank" rel="external">Cypher</a></td>
+<td>Grizo(原来名字叫是Gremlin，但是为了区分开TinkerPop的<a href="http://gremlindocs.spmallette.documentup.com/" target="_blank" rel="external">Gremlin</a>而改名字)</td>
+</tr>
+<tr>
+<td>数据库引擎</td>
+<td>有自己的搜索引擎，不需要额外配置</td>
+<td>没有自己的搜索引擎，需要额外配置，它可以配置多种存储引擎。如leveldb,mysql,mongo等。</td>
+</tr>
+<tr>
+<td>文档</td>
+<td>比较完善，操作实战资料比较多</td>
+<td>还很年轻，文档不是很完善，而且在线运行的例子说好了已经加载了测试数据，但其实还是没有查询得到。</td>
+</tr>
+</tbody>
+</table>
+<p>综上所述，我觉得还是优先使用Neo4j进行数据库搜索，降低学习成果。</p>
+<p>PS.</p>
+<p>Gremlin的中文教程可以点击<a href="https://www.cnblogs.com/myitroad/p/7727570.html" target="_blank" rel="external">Gremlin:图遍历语言</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Deepdive的NLP处理]]></title>
+      <url>http://yoursite.com/2018/08/14/Deepdive%E5%88%86%E8%AF%8D%E5%99%A8/</url>
+      <content type="html"><![CDATA[<h1 id="分词"><a href="#分词" class="headerlink" title="分词"></a>分词</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>在DeepDive的默认实例中，默认使用的分词器是Stanford CoreNLP的工具包，这个工具包可以通过更换语言包来实现对<a href="http://www.voidcn.com/article/p-yamcqsua-mk.html" target="_blank" rel="external">中文的支持</a>，但由于此工具包切词类、命名实体识别类使用的是条件随机场CRF，所以不能做到对用户自定义词典的完全匹配，因此需要进行分词器的优化或者更换。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol>
+<li><p>优化分词器</p>
+<p>自定义CoreNLP中的切词类，达到优化的目的。<a href="http://www.voidcn.com/article/p-delajpay-bep.html" target="_blank" rel="external">优化切词类的方法在这里</a>，此外下面的相关文章也有StanfordNLP的学习笔记。</p>
+</li>
+<li><p>更换分词器</p>
+<p>除了CoreNLP外，中文分词还有很多其他的框架，<a href="https://cloud.tencent.com/developer/article/1010981" target="_blank" rel="external">六款中文分词模块尝试:jieba、THULAC、SnowNLP、pynlpir、CoreNLP、pyLTP</a></p>
+<p>其中，<a href="https://github.com/HIT-SCIR/pyltp" target="_blank" rel="external">pyltp</a>是哈工大语言技术平台的python封装，和CoreNLP一样，可以进行分词、命名实体识别、词性标注、句法分析等NLP处理，这是它的<a href="http://ltp.readthedocs.io/zh_CN/latest/theory.html#customized-cws-reference-label" target="_blank" rel="external">实现原理</a>,具体实践可见<a href="https://www.jianshu.com/p/867478f0e674" target="_blank" rel="external">这里</a>。在pyltp中，我们可以使用<a href="http://ltp.readthedocs.io/zh_CN/latest/train.html" target="_blank" rel="external">训练套件</a>来对模型进行训练,从而实现<a href="http://ltp.readthedocs.io/zh_CN/latest/theory.html#customized-cws-reference-label" target="_blank" rel="external">个性化分词</a></p>
+</li>
+</ol>
+<h1 id="依存分析"><a href="#依存分析" class="headerlink" title="依存分析"></a>依存分析</h1><p><a href="https://blog.csdn.net/vincent2610/article/details/17848741" target="_blank" rel="external">Stanford CoreNLP工具包中可以进行中文语法解析</a>，其中，Parser遵循依存分析的以下定理：</p>
+<ul>
+<li>一个句子中存在一个成分称之为根（root），这个成分不依赖于其它成分。</li>
+<li>其它成分直接依存于某一成分。</li>
+<li>任何一个成分都不能依存与两个或两个以上的成分。</li>
+<li>如果A成分直接依存于B成分，而C成分在句中位于A和B之间，那么C或者直接依存于B，或者直接依存于A和B之间的某一成分。</li>
+<li>中心成分左右两面的其它成分相互不发生关系。</li>
+</ul>
+<p>分析结果的符号解析详见<a href="https://blog.csdn.net/lihaitao000/article/details/51812618" target="_blank" rel="external">这里</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[条件随机场CRF]]></title>
+      <url>http://yoursite.com/2018/08/13/%E6%9D%A1%E4%BB%B6%E9%9A%8F%E6%9C%BA%E5%9C%BACRF/</url>
+      <content type="html"><![CDATA[<h2 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h2><ol>
+<li><a href="https://www.zhihu.com/question/35866596" target="_blank" rel="external">如何用简单易懂的例子解释条件随机场（CRF）模型？它和HMM有什么区别【知乎】</a></li>
+<li><a href="">简明条件随机场CRF介绍 | 附带纯Keras实现</a></li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Deepdive初次体验—]]></title>
       <url>http://yoursite.com/2018/03/21/Deepdive%E5%88%9D%E6%AC%A1%E4%BD%93%E9%AA%8C%E2%80%94%E2%80%94spouse/</url>
       <content type="html"><![CDATA[<p>##参考网站：</p>
@@ -16,12 +198,22 @@
 <li><a href="http://deepdive.stanford.edu/installation" target="_blank" rel="external">Installation官方文档</a></li>
 <li><a href="http://deepdive.stanford.edu/example-spouse" target="_blank" rel="external">例子的官方详细教程</a></li>
 <li><a href="http://www.ruanyifeng.com/blog/2013/12/getting_started_with_postgresql.html" target="_blank" rel="external">Postgresql的基本命令</a></li>
+<li><a href="https://zhaodaolimeng.github.io/deepdivexue-xi-bi-ji/" target="_blank" rel="external">列举了中英文Deepdive的博客</a></li>
+<li><a href="http://www.xjishu.com/zhuanli/55/201710326192_2.html" target="_blank" rel="external">一种基于Deepdive的领域文本知识抽取方法与流程</a></li>
+<li><a href="https://yq.aliyun.com/articles/544941" target="_blank" rel="external">知识图谱数据构建的“硬骨头”，阿里工程师如何拿下？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/20394260" target="_blank" rel="external">知识图谱的应用【知乎】</a></li>
+<li><a href="https://zhaodaolimeng.github.io/deepdivexue-xi-bi-ji/" target="_blank" rel="external">Deepdive学习笔记</a></li>
 </ol>
 <p>#Deepdive spouse初体验</p>
 <p>#Deepdive transaction初体验</p>
 <p>这两个例子的最大的区别应该就是一个是中文的命名实体识别（transaction）一个是英文的命名实体识别。中文这个是浙江大学的团队通过更改斯坦福大学的model包做成的。</p>
 <p><img src="https://github.com/JewelYueng/JewelYueng.github.io/blob/master/img/Deepdive/%E6%B5%81%E7%A8%8B%E5%9B%BE.png?raw=true" alt="流程图"></p>
-<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><p>数据处理分为</p>
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><ul>
+<li>输入非结构化文档信息</li>
+<li>NLP处理</li>
+<li>提取候选实体对</li>
+<li>提取基于上下文的语义特征</li>
+</ul>
 <p>#Deepdive standard实践</p>
 <p>跑起例子来非常的迅速的就跑完，窃以为一切都如此的顺利。</p>
 ]]></content>
@@ -366,9 +558,14 @@
 
 出奇的简单。。
 </code></pre><ul>
-<li>tmux的使用</li>
+<li><p>tmux的使用</p>
+<p>直接新建一个window，并且进入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tmux</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>####session的使用</p>
+<p>  连接上一次关闭的window，并且进入</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tmux attach</div></pre></td></tr></table></figure>
+</code></pre><p>####session的使用</p>
 <table>
 <thead>
 <tr>
@@ -453,6 +650,7 @@
 <p>参考文章：</p>
 <p><a href="http://cenalulu.github.io/linux/tmux/" target="_blank" rel="external">Tmux-Linux从业者必备利器</a>  </p>
 <p><a href="http://www.linuxidc.com/Linux/2014-11/109375.htm" target="_blank" rel="external">CentOS下tmux的安装和使用</a></p>
+<p><a href="https://wiki.freebsdchina.org/software/t/tmux" target="_blank" rel="external">使用tmux</a></p>
 ]]></content>
       
         
