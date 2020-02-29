@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[严格模式]]></title>
+      <url>http://yoursite.com/2019/03/01/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>JS严格模式的原因以及浏览器严格模式<a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""><br>主要建立在<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode" target="_blank" rel="external">MDN｜严格模式</a>基础上进行讲解。</the></p>
+<p>严格模式是JS的一个子集，采用具有限制性JavaScript变体的一种方式，使代码更加模范，在更加严格的条件下进行。</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>设置“严格模式”的目的，有以下：</p>
+<ul>
+<li>规范JS代码，消除一些语法不合理的地方，以及写出更加安全的代码。</li>
+<li>提高编译器效率。</li>
+<li>为未来的ECMAScript版本铺平道路。</li>
+</ul>
+<p>这个模式体现了JS将会向更合理、更安全、更严谨的方向发展。</p>
+<h2 id="标志"><a href="#标志" class="headerlink" title="标志"></a>标志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;use strict&quot;</div></pre></td></tr></table></figure>
+<p>（老版本的浏览器会把它当成一行普通字符串，从而忽略）</p>
+<h2 id="调用模式"><a href="#调用模式" class="headerlink" title="调用模式"></a>调用模式</h2><p>严格模式可以应用到整个脚本或者个别函数中。注意在 eval 、Function 、内联事件处理属性、  WindowTimers.setTimeout() 方法中传入的脚本字符串，其行为类似于开启了严格模式的一个单独脚本，它们会如预期一样工作。</p>
+<h3 id="整个脚本文件"><a href="#整个脚本文件" class="headerlink" title="整个脚本文件"></a>整个脚本文件</h3><p>在所有语句之前进行声明<figure class="highlight plain"><figcaption><span>strict````</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### 函数</div><div class="line">在函数体所有语句之前进行声明````use strict</div></pre></td></tr></table></figure></p>
+<h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><ul>
+<li>在{}内进行严格模式的声明是没有效果的，然而在 eval 、Function 、内联事件处理属性、  WindowTimers.setTimeout() 方法中传入的脚本字符串，其行为类似于开启了严格模式的一个单独脚本，它们会如预期一样工作。</li>
+<li>为整个文本开启严格模式时，合并冲突代码容易存在陷阱：合并严格模式的代码+非严格模式的代码-&gt;严格模式的代码，容易造成系统无法如预期进行。</li>
+<li>为了解决第二点，1. 按一个个函数去开启严格模式；2.可以把严格声明的脚本用一个函数包起来（闭包），在函数中使用严格模式，则可以消除合并的问题。</li>
+</ul>
+<h2 id="严格模式带来的变化"><a href="#严格模式带来的变化" class="headerlink" title="严格模式带来的变化"></a>严格模式带来的变化</h2><ol>
+<li>将问题直接转化成错误</li>
+<li>简化变量的使用</li>
+<li>让eval和arguments变得简单</li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[文本标注工具]]></title>
       <url>http://yoursite.com/2018/08/15/%E6%96%87%E6%9C%AC%E6%A0%87%E6%B3%A8%E5%B7%A5%E5%85%B7/</url>
       <content type="html"><![CDATA[<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
