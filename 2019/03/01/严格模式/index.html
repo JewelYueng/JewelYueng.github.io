@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/03/01/严格模式/index.html">
 <meta property="og:site_name" content="BiuBiu">
 <meta property="og:description" content="JS严格模式的原因以及浏览器严格模式">
-<meta property="og:updated_time" content="2020-02-29T13:40:15.958Z">
+<meta property="og:updated_time" content="2020-02-29T13:41:08.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="严格模式">
 <meta name="twitter:description" content="JS严格模式的原因以及浏览器严格模式">
@@ -321,7 +321,8 @@
 <h2 id="标志"><a href="#标志" class="headerlink" title="标志"></a>标志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;use strict&quot;</div></pre></td></tr></table></figure>
 <p>（老版本的浏览器会把它当成一行普通字符串，从而忽略）</p>
 <h2 id="调用模式"><a href="#调用模式" class="headerlink" title="调用模式"></a>调用模式</h2><p>严格模式可以应用到整个脚本或者个别函数中。注意在 eval 、Function 、内联事件处理属性、  WindowTimers.setTimeout() 方法中传入的脚本字符串，其行为类似于开启了严格模式的一个单独脚本，它们会如预期一样工作。</p>
-<h3 id="整个脚本文件"><a href="#整个脚本文件" class="headerlink" title="整个脚本文件"></a>整个脚本文件</h3><p>在所有语句之前进行声明<figure class="highlight plain"><figcaption><span>strict````</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 函数</div><div class="line"></div><div class="line">在函数体所有语句之前进行声明````use strict</div></pre></td></tr></table></figure></p>
+<h3 id="整个脚本文件"><a href="#整个脚本文件" class="headerlink" title="整个脚本文件"></a>整个脚本文件</h3><p>在所有语句之前进行声明</p>
+<figure class="highlight plain"><figcaption><span>strict````</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 函数</div><div class="line"></div><div class="line">在函数体所有语句之前进行声明</div><div class="line"></div><div class="line">````use strict</div></pre></td></tr></table></figure>
 <h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><ul>
 <li>在{}内进行严格模式的声明是没有效果的，然而在 eval 、Function 、内联事件处理属性、  WindowTimers.setTimeout() 方法中传入的脚本字符串，其行为类似于开启了严格模式的一个单独脚本，它们会如预期一样工作。</li>
 <li>为整个文本开启严格模式时，合并冲突代码容易存在陷阱：合并严格模式的代码+非严格模式的代码-&gt;严格模式的代码，容易造成系统无法如预期进行。</li>
